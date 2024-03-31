@@ -1,7 +1,5 @@
 # Mixing {#sec-mixing}
 
-Do I want to show code or no?
-
 Epidemic models, like the SIR model, involve dyads of individuals -- one susceptible and one infectious -- coming together at a specified rate and generating a new infection with a specified probability. We say that a population is *well-mixed* if all infectious-susceptible dyads in the population have approximately the same probability of occurring. This is obviously a very strong assumption. For example, as a student at Stanford, you are probably much more likely to encounter another Stanford student infected with the flu than you are an infected student at, say, the University of South Carolina. 
 
 We can relax the assumption of a population being well-mixed by adding structure to it. The resulting model will be characterized by *structured mixing*, meaning that there are potentially quite different probabilities associated with dyads that can be formed from the various elements of structure. This structure can represent geographic location (e.g., Palo Alto, CA vs. Columbia, SC) or it can represent various mechanisms by which social or cultural attributes affect the way people interact, e.g., race/ethnicity, age, gender, occupation, social class, income quartile, etc. 
@@ -187,4 +185,4 @@ legend("topright", c("Baseline","Reduce High-Risk", "Reduce Low-Risk", "Reduce B
 ```
 Note the very different range of the y-axis!
 
-This stupidly simple model makes the stark point that if we want to control an epidemic in a heterogeneous population, we should target the segment of the population that generates the most infections. This will often be the same segment of the population that is least at-risk for the most severe consequences of infection. This model provides the logic underlying what may seem like draconian social-distancing interventions (e.g., closing schools, canceling public gatherings).
+This stupidly simple model makes the stark point---one that I think is one of the most profound points in epidemiology---that if we want to control an epidemic in a heterogeneous population, we should target the segment of the population that generates the most infections. This will often be the same segment of the population that is least at-risk for the most severe consequences of infection. This model provides the logic underlying what may seem like draconian social-distancing interventions (e.g., closing schools, canceling public gatherings).
