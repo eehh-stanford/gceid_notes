@@ -1,0 +1,187 @@
+# Evolution {#sec-evolution}
+
+## Phylogenetic Trees
+
+Phylogenetic analysis is an important tool for disease ecologists. Phylogenies can give us clues about the origins of pathogens, especially their relationships to other pathogens and the timing of their emergence and other important evolutionary transitions such as the aquisition of increased virulence. A **phylogeny** is a hypothesis of the evolutionary relationships between a group of taxa typically represented in a **phylogenetic tree**. A tree is a special graph (as in graph theory) which is connected and lacks cycles. Trees represent nested relationships. Every taxon within a **clade** is more closely related to each other than any are to anything outside the clade.
+
+### Phylogeny Terms
+
+**Phylogeny** A hypothesis of the evolutionary relationships between a group of taxa, typically represented in a phylogenetic tree. A tree is a special graph which is connected and lacks cycles.
+
+It's important to know to read a phylogenetic tree. The tree represents *nested* relationships. Every taxon within a clade is more closely related to each other than any are to anything outside the clade. This means that you can rotate the terminal nodes around an internal node (i.e., a clade) and retain the same relationships. For example, if species $B$ and $C$ (along with their common ancestor) form a clade and $A$ is an outgroup, then the nested relationships can be represented as $(A,(B,C))$. The following trees represent the same relations regardless of the ordering of $B$ and $C$ is the graphical representation of the phylogeny.
+
+```{r}
+#| fig-asp: 1
+#| echo: false
+library(ape)
+tt <- "(A,(B,C));"
+ttt <- read.tree(text = tt)
+plot(ttt, type="phylogram", edge.width=3, label.offset=0.05)
+tt <- "(A,(C,B));"
+ttt <- read.tree(text = tt)
+plot(ttt, type="phylogram", edge.width=3, label.offset=0.05)
+```
+
+**Cladogram** A form of representing evolutionary relationships in which branch lengths are meaningless (usually same length).
+
+**Chronogram** A form of representing evolutionary relationships in which branch lengths are proportional to time. The distance from root to leaf is the same for every leaf.
+
+**Phylogram** A form of representing evolutionary relationships in which branch lengths are proportional to evolutionary divergence. The distance from root to leaf is not the same for every leaf.
+
+**Clade** An ancestor and all its descendants.
+
+**Leaves** are the extant taxa in a phylogeny, also *terminal nodes*.
+
+**Apomorphy** A new (i.e., derived) character that arose through evolution. A *synapomorphy* is a shared-derived characteristic. A *plesiomorphy* is an ancestral character (which is therefore not useful for inferring relationships).
+
+**Node** A vertex in the graph representing the evolutionary relations. A node can be *internal*, where it represents the point where one lineage splits into two or more lineages. A node can also be *terminal*, where it represents the present-day lineage.
+
+**Outgroup** A more distantly-related taxon to the group of taxa whose relations are being represented. Allows the phylogeny to be *rooted*. While an outgroup must be more distantly-related than the taxa under consideration, it must be closely-enough related to allow meaningful comparisons to the ingroup.
+
+**Sister Group** The group most closely related to the taxon under consideration. Marburg Virus is the sister group to Ebola Virus.
+
+**Paraphyletic** A tree is paraphyletic if it contains an ancestor but excludes some or all of its descendants. Both HIV-1 and HIV-2 are paraphyletic groups because the naming convention excludes descendants from a common ancestor: SIVcpz in the case of HIV-1 and SIVsm in the case of HIV-2.
+
+**Polyphyletic** An evolutionary hypothesis is polyphyletic if a group of taxa is derived from more than one common ancestor. The category of "HIV" is polyphyletic because HIV-1 and HIV-2 are derived from different ancestors.
+
+```{r}
+#| fig-asp: 1
+#| echo: false
+require(ape)
+lenti <- "((HIV-1,SIVcpz),(HIV-2,SIVsmm));"
+lenti <- read.tree(text=lenti)
+plot(lenti, type="phylogram", edge.width=3, label.offset=0.05)
+```
+
+## Inference For Historical Population Dynamics
+
+## Other Terms
+
+**Degeneracy** For some amino acids, there is a multiplicity of codons (triplets of DNA or RNA nucleotides that code for an amino acid or a stop) that specify a particular amino acid.
+
+**Synonymous Substitution** Mutation where the substitution of one nucleotide for another has no effect on the resulting amino acid that is coded for.
+
+### Selective Constraint
+
+-   Measured using a dn/ds (or Ka/Ks) ratio
+-   Amino acids are determined by codons, sets of three bases in DNA or mRNA
+-   There are four bases at three positions in a codon, therefore are $4^3=64$ possible codons
+-   But there are only 20 amino acids being coded for
+-   This means there is **degeneracy** in the genetic code
+-   Some amino acids are coded by 2, 3, 4, or more codons
+-   The degeneracy occurs in the third codon position
+-   When a mutation changes a base at a third-position in a codon, it may have no effect on the resulting amino acid, because of the degeneracy of the code
+-   Selection is therefore much weaker on such synonymous substitutions
+-   A measure of selective looks at the ratio of synonymous substitutions to non-synonymous substitutions
+-   When this ratio is high, there is strong evidence of positive selection
+-   When the ratio is very low, there is evidence of selective constraint
+
+```{r}
+#| fig-asp: 1
+#| echo: false
+#filo <- "((((RP89,SGU00),((TFIC94,BU07),(EMDRC76,EKDRC95))) LlS03),M);"
+filo <- "((((Reston Pennsylvania 1989,Sudan Gulu Uganda 2000),
+         ((Tai Forest Cote dIvoire 1994,Bundibugyo Uganda 2007),(Ebola Mayinga DRC 1976,Ebola Kikwit DRC 1995))),Lloviu Spain 2003), Marburgvirus);"
+filo <- read.tree(text=filo)
+plot(filo, type="phylogram", edge.width=3, label.offset=0.05)
+```
+
+```{r}
+#| fig-asp: 1
+#| echo: false
+tt <- "((((((Homo,Pan), Gorilla), Pongo), Hylobates), (Macaca,Colobus)),Cebus);"
+anthropoids <- read.tree(text=tt)
+plot(anthropoids, type="phylogram", edge.width=3, label.offset=0.05)
+```
+
+
+## Virulence Evolution
+
+Some plots from @frank1996.
+
+```{r}
+#| fig-asp: 1
+## Figure 3 (Frank 1996)
+vstar <- expression(s*(delta+gamma)/(r-s))
+s <- seq(0,1,length=1000)
+delta <- 0.3
+gamma <- 0.7
+
+## r=0.1
+r <- 0.1
+vr01 <- eval(vstar)
+
+## r=0.5
+r <- 0.5
+vr05 <- eval(vstar)
+
+## r=1.0
+r <- 1
+vr1 <- eval(vstar)
+
+## transmissibility is assumed to be a power function of virulence
+## beta(v) = b*v^s, s \in (0,1)
+
+plot(s[vr1>0],vr1[vr1>0], log="y", type="l", lwd=2, ylim=c(0.1,100),
+     xlab="Transmission Exponent (s)", ylab="Equilibrium Virulence (v*)")
+lines(s[vr05>0],vr05[vr05>0], lwd=2)
+lines(s[vr01>0],vr01[vr01>0], lwd=2)
+text(0.17,10,"r=0.1")
+text(0.53,10,"r=0.5")
+text(0.98,10, "r=1.0")
+```
+
+
+```{r}
+#| fig-asp: 1
+## Frank (1996) figure 4 (kind of -- it's a cross-section of his false 3d plot)
+vstar1 <- expression( (gamma*tau/r)^(1/(tau+1)) )
+tau <- seq(0,4, length=1000)
+gamma <- 0.5
+
+
+r <- 0.1
+plot(tau,eval(vstar1), type="l",  lwd=2,
+      xlab=expression(paste("Clearance Exponent (", tau, ")", sep="")),
+      ylab="Virulence (v*)")
+
+r <- 0.5
+lines(tau,eval(vstar1), lwd=2)
+
+r <- 1
+lines(tau,eval(vstar1), lwd=2)
+text(3.5,1.98,"r=0.1")
+text(3.5,1.4,"r=0.5")
+text(3.5,1.21,"r=1.0")
+```
+
+```{r}
+#| fig-asp: 1
+### Frank (1996) Figure 2
+lambda <- 1
+k <- seq(1,256, length=1000)
+m <- 1.0
+rrr <- expression( (k-(k-1)*((1-m)^2))^-1 )
+r <- eval(rrr)
+vstar <- expression( lambda*(1-r)/(lambda*(1-r) + r) )
+pdf("superinfection.pdf", height=5,width=8)
+plot(k, eval(vstar), type="l", lwd=2, log="x", xaxs="i", ylim=c(0,1),
+     xlab="Strains per Host", ylab="Virulence")
+
+## m=0.1
+m <- 0.1
+r <- eval(rrr)
+lines(k, eval(vstar), lwd=2)
+
+# m=0.01
+m <- 0.01
+r <- eval(rrr)
+lines(k, eval(vstar), lwd=2)
+
+#locator(3)
+x <- c(2.633309,  5.113474, 15.110922)
+y <- c(0.73, 0.555, 0.33)
+text(x[1],y[1],expression(m == 1))
+text(x[2],y[2],expression(m == 0.1))
+text(x[3],y[3],expression(m == 0.01))
+```

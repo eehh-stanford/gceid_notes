@@ -1,0 +1,124 @@
+# Climate Change {#sec-climate_change}
+
+
+
+
+## Plotting Climate Data
+
+### Global Temperature Anomalies 
+
+```{r}
+## https://data.giss.nasa.gov/gistemp/
+temps <- read.table("data/global-temp-anomalies1880-2023.txt", skip=7, 
+                    header=TRUE)
+## number of years = 145
+temp.series <- as.numeric(temps[1,2:13])/100
+for(i in 2:145) temp.series <- c(temp.series, as.numeric(temps[i,2:13])/100)
+## make into time series object
+temp.series <- as.ts(temp.series, start=1880, end=2023, frequency=12)
+## 1740 = 145*12 (months in the series)
+ytk <- seq(1,1740,by=120)
+yrs <- seq(1880,2023,by=10)
+
+
+plot(temp.series, type="l", axes=FALSE, frame=TRUE, xaxs="i",
+     col="#07419e",
+     xlab="Year",
+     ylab="Global Temperature Anomaly")
+axis(1,at=ytk,labels=yrs)
+axis(2)
+## by definition, mean=0
+abline(h=0)
+
+## fit loess line
+tlo <- loess(as.numeric(temp.series) ~ seq(1,1740), span=1/6)
+
+## add loess line to time-series plot
+plot(temp.series, type="l", axes=FALSE, frame=TRUE, xaxs="i",
+     col="#07419e",
+     xlab="Year",
+     ylab="Global Temperature Anomaly")
+lines(predict(tlo, data.frame(seq(1,1740))), col="magenta", lwd=3)
+#lines(lowess(temp.series, f=0.0758), col="magenta", lwd=3)
+axis(1,at=ytk,labels=yrs)
+axis(2)
+abline(h=0)
+```
+
+### Multivariate El Niño Index 
+
+```{r}
+mei <- read.table("data/mei-series2023.txt", header=TRUE, skip=3, row.names = 1)
+mmm <- as.numeric(mei[1,])
+for(i in 2:46) mmm <- c(mmm,as.numeric(mei[i,]))
+mmm <- mmm[!is.na(mmm)]
+dd <- 1:length(mmm)
+yticks <- seq(1,541,by=48)
+years <- seq(1979,2024,by=4)
+
+elnino <- mmm
+elnino[elnino<0] <- 0
+lanina <- mmm
+lanina[lanina>0] <- 0
+
+## plot time series
+plot(mmm, type="l", axes=FALSE, frame=TRUE, xaxs="i", xlab="Year", ylab="MEI")
+axis(1,at=yticks,labels=years)
+axis(2)
+polygon(x=c(dd,rev(dd)), y=c(elnino,rep(0,length(dd))), col="magenta")
+polygon(x=c(0,dd,rev(dd),0), y=c(0,lanina,rep(0,length(dd)),0), col="blue")
+abline(h=0)
+```
+
+## Southern Oscillation Index
+
+```{r}
+### SOI Data (http://www.cpc.ncep.noaa.gov/data/indices/)
+soi <- read.table("data/soi-data1951-2023.txt", skip=1, header=TRUE, row.names=1)
+soi.series <- as.numeric(soi[1,1:12])
+for(i in 2:74) soi.series <- c(soi.series, as.numeric(soi[i,]))
+soi.series <- soi.series[!is.na(soi.series)]
+
+ytk1 <- seq(1,878,by=48)
+yrs1 <- seq(1951,2023,by=4)
+
+plot(soi.series, type="l", axes=FALSE, frame=TRUE, xaxs="i",
+     col="#a80840",
+     xlab="Year",
+     ylab="Standardized SOI")
+axis(1,at=ytk1,labels=yrs1)
+axis(2)
+abline(h=0)
+
+## another way to add a local smoother
+plot(soi.series, type="l", axes=FALSE, frame=TRUE, xaxs="i",
+     col="#a80840",
+     xlab="Year",
+     ylab="Standardized SOI")
+axis(1,at=ytk1,labels=yrs1)
+axis(2)
+abline(h=0)
+lines(lowess(soi.series, f=0.066), col="black", lwd=3)
+```
+
+Try some wavelets.
+
+```{r}
+#| message: false
+## wavelets
+require(biwavelet)
+
+## biwavelet requires a two-column matrix as input
+X <- cbind(1:877,soi.series)
+## wavelet transform
+w1 <- wt(X)
+
+# plot
+plot(w1)
+```
+
+Wavelet spectrum, which combines the frequency and time domains of variability in ENSO. Clear evidence of a 5-year periodicity; some evidence of 3-year, 10-year. Possible decay of 5-year periodicity at later dates. Period in months. 
+
+The color indicates the power of the series at a particular period in a particular time. Power is the signal-processing equivalent of variance, so you can think of this as being similar to an analysis of variance. Which frequencies (inverse of period) contribute the most to the total variance in the time series?
+
+Circled regions indicate statistically significant regions of high power (using an AR1 as a null model).

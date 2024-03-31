@@ -1,0 +1,31 @@
+project:
+  type: book
+
+book:
+  title: "Global Change and Emerging Infectious Disease"
+  author: "James Holland Jones"
+  date: "02/17/2024"
+  chapters:
+    - index.qmd
+    - R0.qmd
+    - ecology.qmd
+    - evolution.qmd
+    - mixing.qmd
+    - land_use.qmd
+    - climate_change.qmd
+    - mobility.qmd
+    - inequality.qmd
+    - amr.qmd
+    - crazy.qmd
+    - references.qmd
+
+bibliography: gceid.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
