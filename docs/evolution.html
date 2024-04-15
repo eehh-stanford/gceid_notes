@@ -20,7 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -191,6 +244,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#selective-constraint" id="toc-selective-constraint" class="nav-link" data-scroll-target="#selective-constraint"><span class="header-section-number">3.3.1</span> Selective Constraint</a></li>
   </ul></li>
+  <li><a href="#will-the-virus-mutate" id="toc-will-the-virus-mutate" class="nav-link" data-scroll-target="#will-the-virus-mutate"><span class="header-section-number">3.4</span> Will the Virus Mutate?</a></li>
   </ul>
 </nav>
     </div>
@@ -280,9 +334,87 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="evolution_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="will-the-virus-mutate" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="will-the-virus-mutate"><span class="header-section-number">3.4</span> Will the Virus Mutate?</h2>
+<p>Reading the breathless coverage of any novel epidemic (e.g., the 2014-16 West African Ebola Epidemic, COVID-19), it can be quite frustrating to see all the fretting over “mutation.” During the West African Ebola Epidemic, there was a very high density of mutation fretting, with high-profile speculation that the Ebola virus might “mutate” into something far worse, like a pathogen that is efficiently transmitted by respiratory droplets or even aresol. For example, Michael Osterholm wrote in a <em>New York Times</em> editorial on 11 September 2014, “The second possibility is one that virologists are loath to discuss openly but are definitely considering in private: that an Ebola virus could mutate to become transmissible through the air.” Morning Edition host David Greene asked WHO Director Margaret Chan the previous week, “Is this virus mutating in a way that could be very dangerous, that could make it spread faster?”</p>
+<p>Following the New York Times editorial, concern that Ebola virus might become airborne was expressed in a news report in <em>Nature</em> <span class="citation" data-cites="hayden2014">(<a href="references.html#ref-hayden2014" role="doc-biblioref">Check Hayden 2014</a>)</span>. In this, UCSF infectious disease physician Charles Chiu is quoted as saying, “The longer we allow the outbreak to continue, the greater the opportunity the virus has to mutate, and it’s possible that it will mutate into a form that would be an even greater threat than it is right now.” True, mutations accumulate over time. Not true, mutation alone will make Ebola virus a greater threat than it is now. That would require selection. A long piece in <em>Scientific American</em>, reprinted in <em>Nature</em> mentions “mutation” seven times but never once mentions selection <span class="citation" data-cites="maron2014">(<a href="references.html#ref-maron2014" role="doc-biblioref">Maron 2014</a>)</span>.</p>
+<p>While the idea of airborne transmission of Ebola virus is terrifying, the development of the ability to be transmitted via droplet or aerosol would be an adaptation on the part of the virus. Adaptations arise from the action of selection on the phenotypic variation. Phenotypes with higher fitness come to dominate the population of entities of which they are a part. In the case of a virus such as Ebola virus, this means that the virus must make sufficient copies of itself to ensure transmission to new susceptible hosts before killing the current host or being cleared by the host’s immune system. While efficient transmission of EVD by aerosol or droplet would be horrible, equally horrible would be an adaptation that allowed it to transmit more efficiently from a dead host. It’s not entirely clear how long Ebola virus can persist in its infectious state in the environment. In a study designed to maximize its persistence (indoors, in the dark, under laboratory conditions), Sagripanti and colleagues found that Ebola virus can persist for six days. Under field conditions, it’s probably much shorter, but CDC suggests that 24 hours in a reasonably conservative estimate.</p>
+<p>Certainly, Ebola Virus becoming more easily transmitted by casual contact would be a nightmare scenario. However, what we need to worry about is not mutation per se, but selection! Yes, the virus is mutating. It’s a thing that viruses do. Ebola Virus is a Filovirus. It is composed of a single strand of negative-sense RNA. Like other viruses, and particularly RNA viruses, it is prone to high mutation rates. This is exacerbated by the fact that RNA polymerases lack the ability to correct mistakes. So mutations happen fast and they don’t get cleaned up. Viruses also have very short generation times and can produce prodigious copies of themselves. This means that there is lots of raw material on which selection can act, because variation is the foundation of selection. Add to that heritability, which pretty much goes without saying since we are talking about the raw material of genetic information here, and differential transmission success and voilà, selection!</p>
+<p>And virulence certainly responds to selection. There is a large literature on experimental evolution of virulence <span class="citation" data-cites="ebert1998">(e.g., <a href="references.html#ref-ebert1998" role="doc-biblioref">Dieter Ebert 1998</a> and citations)</span>. There are lots of different specific factors that can favor the evolution of greater or lesser virulence and this is where theoretical biology can come in and make some sense of things. <span class="citation" data-cites="frank1996">Frank (<a href="references.html#ref-frank1996" role="doc-biblioref">1996</a>)</span> is an important review paper that describes many different models for the evolution of virulence.</p>
+<p>Two interesting regularities in the the evolution of virulence may be relevant to EVD in West Africa. The first comes from a model developed by <span class="citation" data-cites="vanbaalen_sabelis1995">van Baalen and Sabelis (<a href="references.html#ref-vanbaalen_sabelis1995" role="doc-biblioref">1995</a>)</span>. Noting that there is an inherent trade-off between transmissibility of a pathogen and the extent of disease-induced mortality that it causes (a virus that makes more copies of itself is more likely to be transmitted but more viral copies means the host is sicker and might die), they demonstrate that when the relative transmissibility of a pathogen declines, its virulence will increase. They present a marginal-value-theorem solution for optimal virulence, which we can represent graphically in the figure below. Equilibrium virulence occurs where a line, rooted at the origin, is tangent to the curve relating transmissibility to disease-induced mortality. When the curve is shifted down, the equilibrium mortality increases. EVD is a zoonosis and it’s reasonable to think that when it makes the episodic jump into human populations, it is leaving the reservoir species the biology of which it is adapted to and entering a novel species to which it is not adapted. Transmission efficiency very plausibly would decrease in such a case and we would expect higher virulence.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="at">length=</span><span class="dv">500</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utility function fp&gt; 0 fpp &lt; 0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># turns out that RMarkdown does not handle comments with single quotes </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># fp == deriv of f; fpp == 2nd deriv of f</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.5</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.2</span><span class="sc">*</span>(x<span class="dv">-7</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># derivative of the utility function</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>fprime <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.2</span><span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.2</span><span class="sc">*</span>(x<span class="dv">-7</span>))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># f + fp*(z-x) = 0</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># z = x -(f/fp)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># solve for tangency; find the root of this</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>xinter <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">-</span> <span class="fu">f</span>(x)<span class="sc">/</span><span class="fu">fprime</span>(x))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>soln <span class="ot">&lt;-</span> <span class="fu">uniroot</span>(xinter,<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,<span class="fu">f</span>(x), <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">xaxs=</span><span class="st">"i"</span>, <span class="at">yaxs=</span><span class="st">"i"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">axes=</span><span class="cn">FALSE</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Mortality"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Transmissibility"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.7</span>))</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">labels=</span><span class="cn">FALSE</span>,<span class="at">tick=</span><span class="cn">FALSE</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>,<span class="at">labels=</span><span class="cn">FALSE</span>,<span class="at">tick=</span><span class="cn">FALSE</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x,(<span class="fu">f</span>(soln<span class="sc">$</span>root)<span class="sc">/</span>soln<span class="sc">$</span>root)<span class="sc">*</span>x,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(soln<span class="sc">$</span>root,<span class="dv">0</span>,soln<span class="sc">$</span>root,<span class="fu">f</span>(soln<span class="sc">$</span>root), <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(<span class="dv">0</span>,<span class="fu">f</span>(soln<span class="sc">$</span>root),soln<span class="sc">$</span>root,<span class="fu">f</span>(soln<span class="sc">$</span>root), <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(delta,<span class="st">"*"</span>)),<span class="dv">1</span>,<span class="at">at=</span>soln<span class="sc">$</span>root, <span class="at">padj=</span><span class="dv">1</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(beta,<span class="st">"*"</span>)),<span class="dv">2</span>,<span class="at">at=</span><span class="fu">f</span>(soln<span class="sc">$</span>root),<span class="at">padj=</span><span class="fl">0.5</span>, <span class="at">adj=</span><span class="fl">1.5</span>, <span class="at">las=</span><span class="dv">2</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">expression</span>(mu),<span class="dv">1</span>,<span class="at">at=</span><span class="dv">5</span>, <span class="at">padj=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="evolution_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The second generality that may be of interest for EVD is that when pathogens are released of the constraint between transmissibility and mortality – that is, when being really sick (or even dead) does not necessarily detract from transmission of the pathogen – then virulence can increase largely without bound <span class="citation" data-cites="ewald1998">(<a href="references.html#ref-ewald1998" role="doc-biblioref">Ewald 1998</a>)</span>. Ewald uses the difference in virulence between waterborne and directly-transmitted pathogens to demonstrate this effect. At first glance, this seems to contradict the van Baalen &amp; Sabelis model, but it doesn’t really. The constraint is represented by the curve in the above figure. When that constraint is released, the concave curve (i.e., <span class="math inline">\(d^2\beta/d \delta^2&lt;0\)</span>) becomes a straight line (or maybe even an upward-sloping curve) and transmissibility continues to increase with mortality. There is no intermediate optimum, as predicted by the MVT, so virulence increases to the point where host mortality is very high.</p>
+<p>The lack of a strong relationship between host survival and pathogen transmission is why cholera can be so devastatingly pathogenic. The cholera patient can produce 10-20 liters of diarrhea (known as “rice water stools”) per day. These stools contain billions of <em>Vibrio cholerae</em> bacteria, which enter the water supply and can infect other people at a distance well after the original host has died. The breaking of the trade-off between host mortality and the transmissibility of the pathogen means that the natural break on virulence is removed and the case fatality ratio can exceed 50%. That’s high, kind of like the current round of EVD. Imagine if the trade-off between mortality and transmission in EVD were completely broken.</p>
+<p>A hemorrhagic fever, EVD is highly transmissible in the secretions (i.e., blood, vomit, stool) of infected people. Because these fluids can be voluminous and because so many of the cases in any EVD outbreak are healthcare workers, family members, and attendants to the ill, we might imagine that the constraints between transmissibility and disease-induced mortality on the Ebola Virus could be released, at least early in an outbreak. As behavior changes over the course of an outbreak – both because of public health interventions and other autochthonous adaptations to the disease conditions – these constraints become reinforced and selection for high-virulence strains is reduced.</p>
+<p>These are some theoretically-informed speculations about the relevance of selection on virulence in the context of EVD. The reality is that while the theoretical models are often supported by experimental evidence, the devil is always in the details, as noted by <span class="citation" data-cites="ebert_bull2003">D. Ebert and Bull (<a href="references.html#ref-ebert_bull2003" role="doc-biblioref">2003</a>)</span>. One thing is certain, however. We will not make progress in our understanding of this horrifying and rapidly changing epidemic if all we are worried about is the virus mutating.</p>
+<p>Changes in pathogen life histories like increased (or decreased) virulence or mode of transmission arise because of selection, not mutation, and this selection results from interactions with an environment that we are actively shaping. Sure, mutation matters because it provides raw material upon which selection can act, but the fact remains that we are talking primarily about selection here. Selection is overwhelmingly the most powerful force shaping evolution. The selective regimes that pathogens face are affected by the physical and biotic environments in which pathogens are embedded. Critically, they are also shaped by host behavior. In the case of the current West African epidemic of EVD, the host behavior in question is that of many millions of people at risk, their governments, aid organizations, and the global community. People have a enormous potential to shape the selective regime that will, in turn, shape the pathogen that will infect future victims. This is what we need to be worrying about, not whether the virus will mutate.</p>
+<p>Is this pervasive misunderstanding of the mechanisms of life the result of the war of misinformation being waged on science education in the US? I can’t help but think it must at least be a contributor, but if it’s true, it’s pretty depressing because this misunderstanding is finding its way to some of the world’s top news and opinion outlets.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-hayden2014" class="csl-entry" role="listitem">
+Check Hayden, Erika. 2014. <span>“Ebola Virus Mutating Rapidly as It Spreads.”</span> <em>Nature</em>. <a href="https://doi.org/10.1038/nature.2014.15777">https://doi.org/10.1038/nature.2014.15777</a>.
+</div>
+<div id="ref-ebert_bull2003" class="csl-entry" role="listitem">
+Ebert, D., and J. J. Bull. 2003. <span>“Challenging the Trade-Off Model for the Evolution of Virulence: Is Virulence Management Feasible?”</span> <em>Trends in Microbiology</em> 11 (1): 15–20. <a href="https://doi.org/10.1016/S0966-842X(02)00003-3">https://doi.org/10.1016/S0966-842X(02)00003-3</a>.
+</div>
+<div id="ref-ebert1998" class="csl-entry" role="listitem">
+Ebert, Dieter. 1998. <span>“Experimental Evolution of Parasites.”</span> <em>Science</em> 282 (5393): 1432–36. <a href="https://doi.org/10.1126/science.282.5393.1432">https://doi.org/10.1126/science.282.5393.1432</a>.
+</div>
+<div id="ref-ewald1998" class="csl-entry" role="listitem">
+Ewald, Paul W. 1998. <span>“The Evolution of Virulence and Emerging Diseases.”</span> <em>Journal of Urban Health</em> 75 (3): 480–91. <a href="https://doi.org/10.1007/BF02427686">https://doi.org/10.1007/BF02427686</a>.
+</div>
+<div id="ref-frank1996" class="csl-entry" role="listitem">
+Frank, S. A. 1996. <span>“Models of Parasite Virulence.”</span> <em>Quarterly Review of Biology</em> 71 (1): 37–78. <a href="https://doi.org/10.1086/419267">https://doi.org/10.1086/419267</a>.
+</div>
+<div id="ref-maron2014" class="csl-entry" role="listitem">
+Maron, Dina Fine. 2014. <span>“Will the <span>Ebola</span> Virus Go Airborne?”</span> <em>Nature</em>. <a href="https://doi.org/10.1038/nature.2014.15943">https://doi.org/10.1038/nature.2014.15943</a>.
+</div>
+<div id="ref-vanbaalen_sabelis1995" class="csl-entry" role="listitem">
+van Baalen, M., and M. W. Sabelis. 1995. <span>“The Dynamics of Multiple Infection and the Evolution of Virulence.”</span> <em>American Naturalist</em> 146 (6): 881–910. <a href="http://www.jstor.org/stable/2463102">http://www.jstor.org/stable/2463102</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -94,4 +94,68 @@ anthropoids <- read.tree(text=tt)
 plot(anthropoids, type="phylogram", edge.width=3, label.offset=0.05)
 ```
 
+## Will the Virus Mutate?
+
+Reading the breathless coverage of any novel epidemic (e.g., the 2014-16 West African Ebola Epidemic, COVID-19), it can be quite frustrating to see all the fretting over "mutation." 
+During the West African Ebola Epidemic, there was a very high density of mutation fretting, with high-profile speculation that the Ebola virus might "mutate" into something far worse, like a pathogen that is efficiently transmitted by respiratory droplets or even aresol. For example, Michael Osterholm wrote in a _New York Times_ editorial on 11 September 2014, "The second possibility is one that virologists are loath to discuss openly but are definitely considering in private: that an Ebola virus could mutate to become transmissible through the air." Morning Edition host David Greene asked WHO Director Margaret Chan the previous week, "Is this virus mutating in a way that could be very dangerous, that could make it spread faster?"
+
+Following the New York Times editorial, concern that Ebola virus might become airborne was expressed in a news report in _Nature_ [@hayden2014].  In this, UCSF infectious disease physician Charles Chiu is quoted as saying, "The longer we allow the outbreak to continue, the greater the opportunity the virus has to mutate, and it’s possible that it will mutate into a form that would be an even greater threat than it is right now." True, mutations accumulate over time. Not true, mutation alone will make Ebola virus a greater threat than it is now. That would require selection. A long piece in _Scientific American_, reprinted in _Nature_ mentions "mutation" seven times but never once mentions selection [@maron2014].
+
+While the idea of airborne transmission of Ebola virus is terrifying, the development of the ability to be transmitted via droplet or aerosol would be an adaptation on the part of the virus. Adaptations arise from the action of selection on the phenotypic variation. Phenotypes with higher fitness come to dominate the population of entities of which they are a part. In the case of a virus such as Ebola virus, this means that the virus must make sufficient copies of itself to ensure transmission to new susceptible hosts before killing the current host or being cleared by the host's immune system. While efficient transmission of EVD by aerosol or droplet would be horrible, equally horrible would be an adaptation that allowed it to transmit more efficiently from a dead host. It's not entirely clear how long Ebola virus can persist in its infectious state in the environment. In a study designed to maximize its persistence (indoors, in the dark, under laboratory conditions), Sagripanti and colleagues found that Ebola virus can persist for six days. Under field conditions, it's probably much shorter, but CDC suggests that 24 hours in a reasonably conservative estimate.
+
+Certainly, Ebola Virus becoming more easily transmitted by casual contact would be a nightmare scenario. However, what we need to worry about is not mutation per se, but selection! Yes, the virus is mutating. It's a thing that viruses do. Ebola Virus is a Filovirus. It is composed of a single strand of negative-sense RNA. Like other viruses, and particularly RNA viruses, it is prone to high mutation rates. This is exacerbated by the fact that RNA polymerases lack the ability to correct mistakes. So mutations happen fast and they don't get cleaned up. Viruses also have very short generation times and can produce prodigious copies of themselves. This means that there is lots of raw material on which selection can act, because variation is the foundation of selection. Add to that heritability, which pretty much goes without saying since we are talking about the raw material of genetic information here, and differential transmission success and voilà, selection!
+
+And virulence certainly responds to selection. There is a large literature on experimental evolution of virulence [e.g., @ebert1998 and citations]. There are lots of different specific factors that can favor the evolution of greater or lesser virulence and this is where theoretical biology can come in and make some sense of things. @frank1996 is an important review paper that describes many different models for the evolution of virulence. 
+
+Two interesting regularities in the the evolution of virulence may be relevant to EVD in West Africa. The first comes from a model developed by @vanbaalen_sabelis1995. Noting that there is an inherent trade-off between transmissibility of a pathogen and the extent of disease-induced mortality that it causes (a virus that makes more copies of itself is more likely to be transmitted but more viral copies means the host is sicker and might die), they demonstrate that when the relative transmissibility of a pathogen declines, its virulence will increase. They present a marginal-value-theorem solution for optimal virulence, which we can represent graphically in the figure below. Equilibrium virulence occurs where a line, rooted at the origin, is tangent to the curve relating transmissibility to disease-induced mortality. When the curve  is shifted down, the equilibrium mortality increases. EVD is a zoonosis and it's reasonable to think that when it makes the episodic jump into human populations, it is leaving the reservoir species the biology of which it is adapted to and entering a novel species to which it is not adapted. Transmission efficiency very plausibly would decrease in such a case and we would expect higher virulence.
+
+```{r}
+x <- seq(0,30,length=500)
+# utility function fp> 0 fpp < 0
+# turns out that RMarkdown does not handle comments with single quotes 
+# fp == deriv of f; fpp == 2nd deriv of f
+f <- function(x) {
+  0.5 - exp(-0.2*(x-7))
+}
+# derivative of the utility function
+fprime <- function(x) {
+  0.2*exp(-0.2*(x-7))
+}
+
+# f + fp*(z-x) = 0
+# z = x -(f/fp)
+# solve for tangency; find the root of this
+xinter <- function(x) {
+  return(x - f(x)/fprime(x))
+}
+
+soln <- uniroot(xinter,c(0,40))
+
+plot(x,f(x), type="l", lwd=2, xaxs="i", yaxs="i",
+     axes=FALSE,
+     xlab="Mortality",
+     ylab="Transmissibility",
+     ylim=c(0,0.7))
+axis(1,labels=FALSE,tick=FALSE)
+axis(2,labels=FALSE,tick=FALSE)
+box()
+lines(x,(f(soln$root)/soln$root)*x,col="red")
+segments(soln$root,0,soln$root,f(soln$root), lty=2, col="red")
+segments(0,f(soln$root),soln$root,f(soln$root), lty=2, col="red")
+mtext(expression(paste(delta,"*")),1,at=soln$root, padj=1)
+mtext(expression(paste(beta,"*")),2,at=f(soln$root),padj=0.5, adj=1.5, las=2)
+mtext(expression(mu),1,at=5, padj=1)
+```
+
+The second generality that may be of interest for EVD is that when pathogens are released of the constraint between transmissibility and mortality -- that is, when being really sick (or even dead) does not necessarily detract from transmission of the pathogen -- then virulence can increase largely without bound [@ewald1998]. Ewald uses the difference in virulence between waterborne and directly-transmitted pathogens to demonstrate this effect. At first glance, this seems to contradict the van Baalen & Sabelis model, but it doesn't really. The constraint is represented by the curve in the above figure. When that constraint is released, the concave curve (i.e., $d^2\beta/d \delta^2<0$) becomes a straight line (or maybe even an upward-sloping curve) and transmissibility continues to increase with mortality. There is no intermediate optimum, as predicted by the MVT, so virulence increases to the point where host mortality is very high.
+
+The lack of a strong relationship between host survival and pathogen transmission is why cholera can be so devastatingly pathogenic. The cholera patient can produce 10-20 liters of diarrhea (known as "rice water stools") per day. These stools contain billions of _Vibrio cholerae_ bacteria, which enter the water supply and can infect other people at a distance well after the original host has died. The breaking of the trade-off between host mortality and the transmissibility of the pathogen means that the natural break on virulence is removed and the case fatality ratio can exceed 50%. That's high, kind of like the current round of EVD. Imagine if the trade-off between mortality and transmission in EVD were completely broken.
+
+A hemorrhagic fever, EVD is highly transmissible in the secretions (i.e., blood, vomit, stool) of infected people. Because these fluids can be voluminous and because so many of the cases in any EVD outbreak are healthcare workers, family members, and attendants to the ill, we might imagine that the constraints between transmissibility and disease-induced mortality on the Ebola Virus could be released, at least early in an outbreak. As behavior changes over the course of an outbreak -- both because of public health interventions and other autochthonous adaptations to the disease conditions -- these constraints become reinforced and selection for high-virulence strains is reduced.
+
+These are some theoretically-informed speculations about the relevance of selection on virulence in the context of EVD. The reality is that while the theoretical models are often supported by experimental evidence, the devil is always in the details, as noted by @ebert_bull2003. One thing is certain, however. We will not make progress in our understanding of this horrifying and rapidly changing epidemic if all we are worried about is the virus mutating.
+
+Changes in pathogen life histories like increased (or decreased) virulence or mode of transmission arise because of selection, not mutation, and this selection results from interactions with an environment that we are actively shaping. Sure, mutation matters because it provides raw material upon which selection can act, but the fact remains that we are talking primarily about selection here. Selection is overwhelmingly the most powerful force shaping evolution. The selective regimes that pathogens face are affected by the physical and biotic environments in which pathogens are embedded. Critically, they are also shaped by host behavior. In the case of the current West African epidemic of EVD, the host behavior in question is that of many millions of people at risk, their governments, aid organizations, and the global community. People have a enormous potential to shape the selective regime that will, in turn, shape the pathogen that will infect future victims. This is what we need to be worrying about, not whether the virus will mutate. 
+
+Is this pervasive misunderstanding of the mechanisms of life the result of the war of misinformation being waged on science education in the US? I can't help but think it must at least be a contributor, but if it's true, it's pretty depressing because this misunderstanding is finding its way to some of the world's top news and opinion outlets.
 
