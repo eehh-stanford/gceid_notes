@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Global Change and Emerging Infectious Disease - 1&nbsp; That Basic Reproduction Number</title>
+<title>1&nbsp; The Basic Reproduction Number – Global Change and Emerging Infectious Disease</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -21,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -85,22 +89,29 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./ecology.html" rel="next">
 <link href="./index.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ccb035bea26c1e21f80f44cf7c27909.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,28 +120,57 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./R0.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">That Basic Reproduction Number</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./R0.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Basic Reproduction Number</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -140,7 +180,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Global Change and Emerging Infectious Disease</a> 
@@ -162,7 +202,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./R0.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">That Basic Reproduction Number</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Basic Reproduction Number</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -228,7 +268,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -272,7 +312,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-R0" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">That Basic Reproduction Number</span></span></h1>
+<h1 class="title"><span id="sec-R0" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Basic Reproduction Number</span></span></h1>
 </div>
 
 
@@ -285,7 +325,9 @@ div.csl-indent {
   </div>
   
 
+
 </header>
+
 
 <section id="the-basic-reproduction-number-in-a-nutshell" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="the-basic-reproduction-number-in-a-nutshell"><span class="header-section-number">1.1</span> The Basic Reproduction Number in a Nutshell</h2>
@@ -295,9 +337,7 @@ div.csl-indent {
 \left( \frac{{\rm contact}}{{\rm time}}\right) \cdot \left( \frac{{\rm
 time}}{{\rm infection}}\right) \]</span></p>
 <p>More specifically:</p>
-<p><span id="eq-ro"><span class="math display">\[
-R_0 = \tau \cdot \bar{c} \cdot d
-\tag{1.1}\]</span></span></p>
+<p><span id="eq-ro"><span class="math display">\[ R_0 = \tau \cdot \bar{c} \cdot d \tag{1.1}\]</span></span></p>
 <p>where <span class="math inline">\(\tau\)</span> is the transmissibility (i.e., probability of infection given contact between a susceptible and infected individual), <span class="math inline">\(\bar{c}\)</span> is the average rate of contact between susceptible and infected individuals, and <span class="math inline">\(d\)</span> is the duration of infectiousness.</p>
 </section>
 <section id="the-sir-epidemic-model" class="level2" data-number="1.2">
@@ -313,54 +353,41 @@ R_0 = \tau \cdot \bar{c} \cdot d
 <p>A well-mixed population is one where any infected individual has a probability of contacting any susceptible individual that is reasonably well approximated by the average. This is often the most problematic assumption, but is easily relaxed in more complex models.</p>
 <p>In our closed population of <span class="math inline">\(N\)</span> individuals, say that <span class="math inline">\(S\)</span> are susceptible, <span class="math inline">\(I\)</span> infected, and <span class="math inline">\(R\)</span> are removed. Write <span class="math inline">\(s=S/N\)</span>, <span class="math inline">\(i=I/N\)</span>, <span class="math inline">\(r=R/N\)</span> to denote the fraction in each compartment.</p>
 <p>The SIR model is then:</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{aligned}
   \frac{ds}{dt} &amp; =  -\beta si \\
   \frac{di}{dt} &amp; =  \beta si - \nu i \\
   \frac{dr}{dt} &amp; =   \nu i
-\end{aligned}
-\]</span></p>
+\end{aligned}\]</span></p>
 <p>where <span class="math inline">\(\beta = \tau \bar{c}\)</span> and is known as the effective contact rate, <span class="math inline">\(\nu\)</span> is the removal rate. By assumption all rates are constant. This means that the expected duration of infection is simply the inverse of the removal rate: <span class="math inline">\(d = \nu^{-1}\)</span>.</p>
 <p>What are the conditions for an epidemic? An epidemic occurs if the number of infected individuals increases, i.e., <span class="math inline">\(di/dt &gt; 0\)</span></p>
 <p><span class="math display">\[ \beta si - \nu i &gt; 0 \]</span></p>
 <p><span class="math display">\[ \frac{\beta si}{\nu} &gt; i \]</span></p>
 <p>At the outset of an epidemic, nearly everyone (except the index case) is susceptible. So we can say that <span class="math inline">\(s \approx 1\)</span>. Substituting <span class="math inline">\(s=1\)</span>, we arrive at the following inequality</p>
 <p><span class="math display">\[ \frac{\beta}{\nu} = R_0 &gt; 1 \]</span></p>
-<p>Since <span class="math inline">\(\beta = \tau \bar{c}\)</span> and <span class="math inline">\(d = \nu^{-1}\)</span>, we see that we have derived our expression for <span class="math inline">\(R_0\)</span> given in <a href="#eq-ro">Equation&nbsp;<span>1.1</span></a>. This little bit of mathematical trickery explains why we have that cumbersome phrase “in a completely susceptible population” tacked onto our definition for <span class="math inline">\(R_0\)</span>.</p>
+<p>Since <span class="math inline">\(\beta = \tau \bar{c}\)</span> and <span class="math inline">\(d = \nu^{-1}\)</span>, we see that we have derived our expression for <span class="math inline">\(R_0\)</span> given in <a href="#eq-ro" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>. This little bit of mathematical trickery explains why we have that cumbersome phrase “in a completely susceptible population” tacked onto our definition for <span class="math inline">\(R_0\)</span>.</p>
 <section id="heterogeneous-contact" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="heterogeneous-contact"><span class="header-section-number">1.2.1</span> Heterogeneous Contact</h3>
-<p>Epidemiologists who studied gonorrhea infection noted that there was a great deal of behavioral heterogeneity in sexual behavior in populations with endemic infection. <span class="citation" data-cites="hethcote_yorke1984">Hethcote and Yorke (<a href="references.html#ref-hethcote_yorke1984" role="doc-biblioref">1984</a>)</span> suggested that partnership heterogeneity might actually permit continued gonorrhea transmission, even when the average population behavior should not support continued infection. <span class="citation" data-cites="nold1980">Nold (<a href="references.html#ref-nold1980" role="doc-biblioref">1980</a>)</span> first articulated a mathematical treatment of this phenomenon and <span class="citation" data-cites="anderson_etal1986">R. M. Anderson et al. (<a href="references.html#ref-anderson_etal1986" role="doc-biblioref">1986</a>)</span> derived an analytical relationship for the impact of such behavioral heterogeneity on the basic reproduction number for HIV infection.</p>
+<p>Epidemiologists who studied gonorrhea infection noted that there was a great deal of behavioral heterogeneity in sexual behavior in populations with endemic infection. <span class="citation" data-cites="hethcote_yorke1984">Hethcote and Yorke (<a href="references.html#ref-hethcote_yorke1984" role="doc-biblioref">1984</a>)</span> suggested that partnership heterogeneity might actually permit continued gonorrhea transmission, even when the average population behavior should not support continued infection. <span class="citation" data-cites="nold1980">Nold (<a href="references.html#ref-nold1980" role="doc-biblioref">1980</a>)</span> first articulated a mathematical treatment of this phenomenon and <span class="citation" data-cites="anderson_etal1986">Anderson et al. (<a href="references.html#ref-anderson_etal1986" role="doc-biblioref">1986</a>)</span> derived an analytical relationship for the impact of such behavioral heterogeneity on the basic reproduction number for HIV infection.</p>
 <p>Begin again with a population of <span class="math inline">\(N\)</span> individuals that is divided into <span class="math inline">\(k\)</span> subgroups, <span class="math inline">\(N_i\)</span>, where <span class="math inline">\(i\)</span> is the average number of sexual partners per unit time. <span class="math inline">\(N_i = N p_i\)</span>, where <span class="math inline">\(p_i\)</span> is the proportion of the population in the <span class="math inline">\(i\)</span>th activity class. We use an SI model, since there is no recovery from HIV infection (at least there wasn’t in 1986).</p>
-<p>Assume (and this is a big assumption) that the risk of transmission increases <em>linearly</em> with the average number of partners. Let <span class="math inline">\(\lambda = \tau I/N\)</span> be the force of infection, where <span class="math inline">\(\tau\)</span> is the probability of transmission given contact. <span class="citation" data-cites="anderson_etal1986">R. M. Anderson et al. (<a href="references.html#ref-anderson_etal1986" role="doc-biblioref">1986</a>)</span> use <span class="math inline">\(\beta\)</span> for this probability, but this is confusing given more current usage where <span class="math inline">\(\beta\)</span> is more conventionally the product of transmissibility and the mean rate of contact between susceptibles and infectious individuals. We therefore use <span class="math inline">\(\tau\)</span> in the derivation rather than <span class="math inline">\(\beta\)</span>. Thus, the rate of formation of new infections in the <span class="math inline">\(i\)</span>th activity class is <span class="math inline">\(i \lambda\)</span>. Let <span class="math inline">\(X_i(t)\)</span> and <span class="math inline">\(Y_i(t)\)</span> be the number of susceptible and infectious individuals in activity class <span class="math inline">\(i\)</span> respectively. Our SI model is thus written as:</p>
-<p><span id="eq-dyi"><span class="math display">\[
-\begin{aligned}
+<p>Assume (and this is a big assumption) that the risk of transmission increases <em>linearly</em> with the average number of partners. Let <span class="math inline">\(\lambda = \tau I/N\)</span> be the force of infection, where <span class="math inline">\(\tau\)</span> is the probability of transmission given contact. <span class="citation" data-cites="anderson_etal1986">Anderson et al. (<a href="references.html#ref-anderson_etal1986" role="doc-biblioref">1986</a>)</span> use <span class="math inline">\(\beta\)</span> for this probability, but this is confusing given more current usage where <span class="math inline">\(\beta\)</span> is more conventionally the product of transmissibility and the mean rate of contact between susceptibles and infectious individuals. We therefore use <span class="math inline">\(\tau\)</span> in the derivation rather than <span class="math inline">\(\beta\)</span>. Thus, the rate of formation of new infections in the <span class="math inline">\(i\)</span>th activity class is <span class="math inline">\(i \lambda\)</span>. Let <span class="math inline">\(X_i(t)\)</span> and <span class="math inline">\(Y_i(t)\)</span> be the number of susceptible and infectious individuals in activity class <span class="math inline">\(i\)</span> respectively. Our SI model is thus written as:</p>
+<p><span id="eq-dyi"><span class="math display">\[\begin{aligned}
 \frac{dX_i}{dt} &amp; =  -i \lambda X_i  \\
 \frac{dY_i}{dt} &amp; =  i \lambda X_i - \nu Y_i
 \end{aligned}
 \tag{1.2}\]</span></span></p>
 <p>At time <span class="math inline">\(t\)</span>, assuming proportionate mixing (another big assumption) the overall force of infection is:</p>
-<p><span id="eq-force"><span class="math display">\[
-\lambda(t) = \frac{\tau \sum_i i Y_i(t)}{\sum_i i N_i(t)}
-\tag{1.3}\]</span></span></p>
-<p>Integrate <a href="#eq-dyi">Equation&nbsp;<span>1.2</span></a> (<span class="math inline">\(dX_i/dt\)</span>) to get</p>
-<p><span id="eq-sum"><span class="math display">\[
-X_i(t) = N_i \exp \left[-i \psi(t) \right],
-\tag{1.4}\]</span></span></p>
+<p><span id="eq-force"><span class="math display">\[\lambda(t) = \frac{\tau \sum_i i Y_i(t)}{\sum_i i N_i(t)} \tag{1.3}\]</span></span></p>
+<p>Integrate <a href="#eq-dyi" class="quarto-xref">Equation&nbsp;<span>1.2</span></a> (<span class="math inline">\(dX_i/dt\)</span>) to get</p>
+<p><span id="eq-sum"><span class="math display">\[X_i(t) = N_i \exp \left[-i \psi(t) \right], \tag{1.4}\]</span></span></p>
 <p>where <span class="math inline">\(\psi(t)\)</span> is simply the summed force of infection up to time <span class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[ \psi(t) = \int_0^t \lambda(g) dg. \]</span></p>
-<p>Substitute <a href="#eq-force">Equation&nbsp;<span>1.3</span></a> into <a href="#eq-dyi">Equation&nbsp;<span>1.2</span></a> and sum to produce a differential equation for <span class="math inline">\(\lambda(t)\)</span>:</p>
-<p><span id="eq-deqlambda"><span class="math display">\[
-\frac{d\lambda}{dt} = \lambda \left( \tau \sum_i i^2 e^{-i \psi}
-  p_i/\sum_i i p_i - \nu \right).
-\tag{1.5}\]</span></span></p>
-<p>At the outset of an epidemic, we can assume that approximately everyone in each activity class is susceptible (i.e., <span class="math inline">\(X_i \approx N_i\)</span>) and the summed force of infection is zero, <span class="math inline">\(\psi = 0\)</span>, since there’s been no epidemic yet! This simplifies <a href="#eq-deqlambda">Equation&nbsp;<span>1.5</span></a> considerably. Note that, after simplification, the term in the numerator (<span class="math inline">\(\sum_i i^2 p_i\)</span>) is the expectation of a squared variable, <span class="math inline">\(E(i^2)\)</span>. This is related to variance, which by definition is <span class="math inline">\(\operatorname{Var}(i) = E(i - E(i))^2 = E(i^2) - E(i)^2\)</span>. So <span class="math inline">\(E(i^2) = E(i) + \operatorname{Var}(i)\)</span>. The denominator (<span class="math inline">\(\sum_i i p_i\)</span>) is the expected (or mean) number of contacts <span class="math inline">\(E(i)\)</span>. Call the variance in contacts <span class="math inline">\(\sigma^2\)</span> and the mean number of contacts <span class="math inline">\(\mu\)</span>. Noting that <span class="math inline">\(\beta=\tau \mu\)</span> and defining the coefficient of variation as <span class="math inline">\(c = \sigma/\mu\)</span>, we get the relationship:</p>
-<p><span id="eq-hetlambda"><span class="math display">\[
-\frac{d\lambda}{dt} = \lambda \left[ \beta (1 + c^2) - \nu \right].
-\tag{1.6}\]</span></span></p>
+<p>Substitute <a href="#eq-force" class="quarto-xref">Equation&nbsp;<span>1.3</span></a> into <a href="#eq-dyi" class="quarto-xref">Equation&nbsp;<span>1.2</span></a> and sum to produce a differential equation for <span class="math inline">\(\lambda(t)\)</span>:</p>
+<p><span id="eq-deqlambda"><span class="math display">\[\frac{d\lambda}{dt} = \lambda \left( \tau \sum_i i^2 e^{-i \psi}
+  p_i/\sum_i i p_i - \nu \right). \tag{1.5}\]</span></span></p>
+<p>At the outset of an epidemic, we can assume that approximately everyone in each activity class is susceptible (i.e., <span class="math inline">\(X_i \approx N_i\)</span>) and the summed force of infection is zero, <span class="math inline">\(\psi = 0\)</span>, since there’s been no epidemic yet! This simplifies <a href="#eq-deqlambda" class="quarto-xref">Equation&nbsp;<span>1.5</span></a> considerably. Note that, after simplification, the term in the numerator (<span class="math inline">\(\sum_i i^2 p_i\)</span>) is the expectation of a squared variable, <span class="math inline">\(E(i^2)\)</span>. This is related to variance, which by definition is <span class="math inline">\(\operatorname{Var}(i) = E(i - E(i))^2 = E(i^2) - E(i)^2\)</span>. So <span class="math inline">\(E(i^2) = E(i) + \operatorname{Var}(i)\)</span>. The denominator (<span class="math inline">\(\sum_i i p_i\)</span>) is the expected (or mean) number of contacts <span class="math inline">\(E(i)\)</span>. Call the variance in contacts <span class="math inline">\(\sigma^2\)</span> and the mean number of contacts <span class="math inline">\(\mu\)</span>. Noting that <span class="math inline">\(\beta=\tau \mu\)</span> and defining the coefficient of variation as <span class="math inline">\(c = \sigma/\mu\)</span>, we get the relationship:</p>
+<p><span id="eq-hetlambda"><span class="math display">\[\frac{d\lambda}{dt} = \lambda \left[ \beta (1 + c^2) - \nu \right]. \tag{1.6}\]</span></span></p>
 <p>Solving for <span class="math inline">\(\dot{\lambda}&gt;0\)</span>, we recover the value of <span class="math inline">\(R_0\)</span> for heterogeneous contacts.</p>
-<p><span id="eq-hetro"><span class="math display">\[
-R_0 = \mathcal{R}_0^{(M)}(1 + c^2),
-\tag{1.7}\]</span></span></p>
+<p><span id="eq-hetro"><span class="math display">\[R_0 = \mathcal{R}_0^{(M)}(1 + c^2),  \tag{1.7}\]</span></span></p>
 <p>where <span class="math inline">\(\mathcal{R}_0^{(M)}\)</span> is the mean-field solution for <span class="math inline">\(R_0\)</span>.</p>
 </section>
 </section>
@@ -376,8 +403,7 @@ R_0 = \mathcal{R}_0^{(M)}(1 + c^2),
 <p><span class="math display">\[       \mathbf{G} = \left[ \begin{array}{cc}
     a  &amp; b  \\
     c &amp; d
-   \end{array} \right]
-\]</span></p>
+   \end{array} \right]\]</span></p>
 <p>The eigenvalues of <span class="math inline">\(\mathbf{G}\)</span> are:</p>
 <p><span class="math display">\[ \lambda_{\pm} = \frac{T}{2} \pm \sqrt{(T/2)^2 - D} \]</span></p>
 <p>where <span class="math inline">\(T=a+d\)</span> is the trace and <span class="math inline">\(D=ad-bc\)</span> is the determinant of matrix <span class="math inline">\({\bf G}\)</span>.</p>
@@ -385,40 +411,32 @@ R_0 = \mathcal{R}_0^{(M)}(1 + c^2),
 <p><span class="math display">\[       \mathbf{G} = \left[ \begin{array}{cc}
     0  &amp; f  \\
     m &amp; 0
-   \end{array} \right]
-\]</span></p>
+   \end{array} \right]\]</span></p>
 <p><span class="math inline">\(R_0\)</span> is thus <span class="math inline">\(\sqrt{mf}\)</span>. It is worth noting that this is the geometric mean of the expected number of female and male secondary cases.</p>
 <p>When you have more than two discrete types of infectious classes, the formula for calculating the eigenvalues is not as simple, but the same ideas apply. In practice, we typically calculate eigenvalues numerically using software like <code>R</code>.</p>
 </section>
 <section id="next-generation-matrix-more-formal-approach" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="next-generation-matrix-more-formal-approach"><span class="header-section-number">1.3.2</span> Next Generation Matrix: More Formal Approach</h3>
-<p>A review paper by <span class="citation" data-cites="heffernan_etal2005">Heffernan, Smith, and Wahl (<a href="references.html#ref-heffernan_etal2005" role="doc-biblioref">2005</a>)</span> provides a nice readable introduction for calculating <span class="math inline">\(R_0\)</span> in structured population models. The notation I use here follows their usage.</p>
+<p>A review paper by <span class="citation" data-cites="heffernan_etal2005">Heffernan et al. (<a href="references.html#ref-heffernan_etal2005" role="doc-biblioref">2005</a>)</span> provides a nice readable introduction for calculating <span class="math inline">\(R_0\)</span> in structured population models. The notation I use here follows their usage.</p>
 <p>Consider the next generation matrix <span class="math inline">\(\mathbf{G}\)</span>. It is comprised of two parts: <span class="math inline">\(F\)</span> and <span class="math inline">\(V^{-1}\)</span>, where</p>
-<p><span id="eq-F"><span class="math display">\[
-F = \left[ \frac{\partial F_i(x_0)}{\partial x_j} \right]
-\tag{1.8}\]</span></span></p>
+<p><span id="eq-F"><span class="math display">\[F = \left[ \frac{\partial F_i(x_0)}{\partial x_j} \right] \tag{1.8}\]</span></span></p>
 <p>and</p>
-<p><span id="eq-V"><span class="math display">\[
-V = \left[ \frac{\partial V_i(x_0)}{\partial x_j} \right]
-\tag{1.9}\]</span></span></p>
+<p><span id="eq-V"><span class="math display">\[V = \left[ \frac{\partial V_i(x_0)}{\partial x_j} \right] \tag{1.9}\]</span></span></p>
 <p>These are square matrices of the partial derivatives of new infections (<span class="math inline">\(F_i\)</span>) and transfers between different compartments (<span class="math inline">\(V_i\)</span>). The rank of these matrices is the number of distinct classes of infections. For example, in a simple two-sex SIR model, the next generation matrix would be <span class="math inline">\(2 \times 2\)</span> since there are two classes of infection (i.e., female and male). <span class="math inline">\(x_0\)</span> is the disease-free equilibrium state. This matrix should be non-negative, irreducible, and primitive.</p>
 <p><span class="math inline">\(R_0\)</span> is then the dominant eigenvalue of the matrix <span class="math inline">\(\mathbf{G}=FV^{-1}\)</span>.</p>
 <p><strong>Example: SEIR Epidemic</strong> Consider a Susceptible-Exposed-Infected-Removed (SEIR) Epidemic. This is an appropriate model for a disease where there is a considerable post-infection incubation period in which the exposed person is not yet infectious.</p>
 <p><strong>add SEIR state diagram</strong></p>
 <p>The simple SEIR model consists of a set of four differential equations:</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{aligned}
 \dot{S} &amp; =  -\beta S I + \lambda - \mu S \\
 \dot{E} &amp; =  \beta SI - (\mu + k) E \\
 \dot{I} &amp; =  kE - (\gamma + \mu) I \\
 \dot{R} &amp; =  \gamma I - \mu R
-\end{aligned}
-\]</span></p>
+\end{aligned}\]</span></p>
 <p>where <span class="math inline">\(\beta\)</span> is the effective contact rate, <span class="math inline">\(\lambda\)</span> is the “birth” rate of susceptibles, <span class="math inline">\(\mu\)</span> is the mortality rate, <span class="math inline">\(k\)</span> is the progression rate from exposed (latent) to infected, <span class="math inline">\(\gamma\)</span> is the removal rate.</p>
 <p>Note that in the absence of infection, the equilibrium number of susceptible is <span class="math inline">\(S^* = \lambda/\mu\)</span>.</p>
 <p>To calculate the next generation matrix for the SEIR model, we need to enumerate the number of ways that (1) new infections can arise and (2) the number of ways that individuals can move between compartments. There are two disease states but only one way to create new infections. New infections arise through the exposed class. There are only two infection classes <span class="math inline">\(E\)</span> and <span class="math inline">\(I\)</span>. Our <span class="math inline">\(F\)</span> matrix collects the partial derivatives of the rate of new infections with respect to changes in the infection classes:</p>
-<p><span id="eq-seir-F"><span class="math display">\[
-F = \left(
+<p><span id="eq-seir-F"><span class="math display">\[F = \left(
           \begin{array}{cc}
             0 &amp; \frac{\beta  \lambda }{\mu } \\
             0 &amp; 0 \\
@@ -427,44 +445,44 @@ F = \left(
          \tag{1.10}\]</span></span></p>
 <p>where we substitute the disease-free equilibrium for <span class="math inline">\(S\)</span>.</p>
 <p>The <span class="math inline">\(V\)</span> matrix collects the partial derivatives of the various ways to move between the two infection states:</p>
-<p><span id="eq-seir-V"><span class="math display">\[
-V = \left(
+<p><span id="eq-seir-V"><span class="math display">\[V = \left(
           \begin{array}{cc}
             k+\mu  &amp; 0 \\
             -k &amp; \gamma +\mu  \\
           \end{array}
         \right)
-\tag{1.11}\]</span></span></p>
+         \tag{1.11}\]</span></span></p>
 <p><span class="math inline">\(R_0\)</span> is the leading eigenvalue of the matrix <span class="math inline">\(FV^{-1}\)</span>. This is reasonably straightforward to calculate since <span class="math inline">\(FV^{-1}\)</span> is simply a <span class="math inline">\(2\times2\)</span> matrix.</p>
-<p><span id="eq-seir-ro"><span class="math display">\[
-R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )}
-\tag{1.12}\]</span></span></p>
+<p><span id="eq-seir-ro"><span class="math display">\[ R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )}  \tag{1.12}\]</span></span></p>
 <p>It is interesting to note that <span class="math inline">\(R_0\)</span> is also the product of the rate of production of (1) new exposures and (2) new infections, as it should be.</p>
 </section>
 </section>
 <section id="what-is-a-generation" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="what-is-a-generation"><span class="header-section-number">1.4</span> What is a Generation?</h2>
 <p>In demography, <span class="math inline">\(R_0\)</span> represents the ratio of total population size from the start to the end of a generation, which is, roughly, the mean age of childbearing. <span class="math inline">\(R_0 = e^{rT}\)</span>, where <span class="math inline">\(r\)</span> is the instantaneous rate of increase of the population. So what is a generation in an epidemic model? Generations in epidemic models are the waves of secondary infection that flow from each previous infection. So, the first generation of an epidemic is all the secondary infections that result from infectious contact with the index case, who is of generation zero. If <span class="math inline">\(\mathcal{R}_i\)</span> denotes the reproduction number of the <span class="math inline">\(i\)</span>th generation, then <span class="math inline">\(R_0\)</span> is simply the number of infections generated by the index case, i.e., generation zero. Now, these numbers are typically small and are therefore susceptible to random sampling error. Consequently, we talk about expected (i.e., averaged over many epidemics) numbers of secondary cases produced by generation zero. See <span class="citation" data-cites="diekmannheesterbeeck2000">Diekmann and Heesterbeek (<a href="references.html#ref-diekmannheesterbeeck2000" role="doc-biblioref">2000</a>)</span> or <span class="citation" data-cites="heesterbeek2002">Heesterbeek (<a href="references.html#ref-heesterbeek2002" role="doc-biblioref">2002</a>)</span> for a more complete discussion of this topic.</p>
-<p>Figure~<span class="math inline">\(\ref{fig:gen}\)</span> shows a schematic representation of an epidemic. The zeroth generation of the epidemic is the index case – patient zero – indicated in red. The number of secondary infections generated by the case in generation zero is <span class="math inline">\(R_0=3\)</span>. In the first generation (blue), <span class="math inline">\(\mathcal{R}_1=6/3=2\)</span>. The second generation (cyan) has <span class="math inline">\(\mathcal{R}_1=12/6=2\)</span>.</p>
-<p><strong>include generations figure</strong></p>
-<p>The generation time of an epidemic is typically called the <em>serial interval</em> which we will denote <span class="math inline">\(V\)</span>. <span class="citation" data-cites="anderson_may1991">Roy M. Anderson and May (<a href="references.html#ref-anderson_may1991" role="doc-biblioref">1991</a>)</span> show how we can use the serial interval to estimate <span class="math inline">\(R_0\)</span> at the outset of an outbreak. Assuming constant mortality, they show that</p>
-<p><span id="eq-ro-from-r"><span class="math display">\[
-  R_0 = 1 + r V,
-\tag{1.13}\]</span></span></p>
+<p><a href="#fig-gens" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> shows a schematic representation of an epidemic. The zeroth generation of the epidemic is the index case—patient zero—indicated in red. The number of secondary infections generated by the case in generation zero is <span class="math inline">\(R_0=3\)</span>. In the first generation (blue), <span class="math inline">\(\mathcal{R}_1=6/3=2\)</span>. The second generation (cyan) has <span class="math inline">\(\mathcal{R}_1=12/6=2\)</span>.</p>
+<div id="fig-gens" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gens-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/generations.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gens-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Four generations of an epidemic.
+</figcaption>
+</figure>
+</div>
+<p>The generation time of an epidemic is typically called the <em>serial interval</em> which we will denote <span class="math inline">\(V\)</span>. <span class="citation" data-cites="anderson_may1991">Anderson and May (<a href="references.html#ref-anderson_may1991" role="doc-biblioref">1991</a>)</span> show how we can use the serial interval to estimate <span class="math inline">\(R_0\)</span> at the outset of an outbreak. Assuming constant mortality, they show that</p>
+<p><span id="eq-ro-from-r"><span class="math display">\[  R_0 = 1 + r V, \tag{1.13}\]</span></span></p>
 <p>where <span class="math inline">\(r\)</span> is the exponential rate of increase of infections. Assuming the outbreak started with a small number of infections (e.g., 1), we estimate this simply as <span class="math inline">\(r=\log(I(t))/t\)</span>.</p>
 <p>For example, on 26 January 2020, the WHO situation report indicated that there were approximately 2000 COVID-19 cases in China. On the same day, Imperial College epidemiologist Neil Ferguson told the Guardian newspaper that he believed there were already 100,000 infections in China. Based on previous estimates from the 2003 SARS outbreak, the serial interval can be assumed to be 5-7 days. Early epidemic reporting suggest that the spillover event occurred some time around 1 December 2019, meaning that 26 January was 56 days into the epidemic (allowing for a one-day reporting lag). So at a minimum, we can estimate <span class="math inline">\(R_0 \approx 1 + 5 \times \log(2000) = 1.68\)</span>. At the other end, we have <span class="math inline">\(R_0 \approx 1 + 7 \times \log(100000) = 2.44\)</span>. Note that the shorter serial interval, perhaps counter-intuitively, means that <span class="math inline">\(R_0\)</span> is lower. This is because, for a given epidemic size, the number of infections has taken more generations to get to that size.</p>
 </section>
 <section id="doubling-time-of-an-epidemic" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="doubling-time-of-an-epidemic"><span class="header-section-number">1.5</span> Doubling Time of an Epidemic</h2>
 <p><span class="math inline">\(R_0\)</span> also gives us information about the doubling time of an epidemic. This is a pretty intuitive statistic that can effectively communicate the potential severity of an outbreak. Denote the doubling time of the epidemic <span class="math inline">\(T_D\)</span>, then</p>
-<p><span id="eq-doubling"><span class="math display">\[
-  T_D = \frac{\log(2) V}{R_0 -1}.
-\tag{1.14}\]</span></span></p>
+<p><span id="eq-doubling"><span class="math display">\[  T_D = \frac{\log(2) V}{R_0 -1}. \tag{1.14}\]</span></span></p>
 <p>An outbreak with <span class="math inline">\(R_0=2.5\)</span> and a serial interval of <span class="math inline">\(V=5\)</span> will double every 2.3 days.</p>
 <p>We can also calculate the doubling time of an ongoing outbreak from case counts on two different days.</p>
-<p><span id="eq-double-2pts"><span class="math display">\[
-  T_D = \frac{t_1 - t_0}{\log_2 \left(\frac{N_1}{N_0} \right)}
-\tag{1.15}\]</span></span></p>
+<p><span id="eq-double-2pts"><span class="math display">\[  T_D = \frac{t_1 - t_0}{\log_2 \left(\frac{N_1}{N_0} \right)} \tag{1.15}\]</span></span></p>
 <p>CDC reports that there were 10 confirmed COVID-19 cases in the USA on 21 February 2020 and 41 nine days later on 1 March. This suggests a doubling time of 4.2 days for <em>confirmed cases</em>. Given the almost complete lack of testing at this point in the epidemic, this is probably quite a bit greater than the actual doubling time of actual infections.</p>
 </section>
 <section id="will-an-epidemic-infect-everyone" class="level2" data-number="1.6">
@@ -475,24 +493,31 @@ R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )}
 <p>We solve this equation by first multiplying both sides by <span class="math inline">\(ds\)</span></p>
 <p><span class="math display">\[di =  (-1 + \frac{\nu}{\beta s})ds \]</span></p>
 <p>We then integrate and do a little algebra, yielding</p>
-<p><span id="eq-final"><span class="math display">\[
-  \log(s_{\infty}) =  R_0 (s_{\infty}-1)
-\tag{1.16}\]</span></span></p>
-<p>This is an implicit equation for <span class="math inline">\(s_{\infty}\)</span>, the number of susceptibles at the end of the epidemic. When <span class="math inline">\(R_0 &gt; 1\)</span>, this equation has exactly two roots, only one of which lies in the interval <span class="math inline">\((0,1)\)</span>. %Subtract <span class="math inline">\(\log(s_{\infty})\)</span> from both sides and we get <span class="math inline">\(R_0 (s\_{\infty}-1)-\log(s\_{\infty})=0\)</span>. Call the whole left-hand side <span class="math inline">\(y\)</span>. <span class="math inline">\(y\)</span> will have different values for different values of <span class="math inline">\(\log(s_{\infty})\)</span>. Only a couple of those will satisfy <a href="#eq-final">Equation&nbsp;<span>1.16</span></a>. <span class="math inline">\(\log(s_{\infty})=0\)</span> (i.e., everyone remains susceptible since there is no epidemic) will always satisfy <a href="#eq-final">Equation&nbsp;<span>1.16</span></a> (plug it in and see!). When <span class="math inline">\(R_0&gt;1\)</span>, the other solution is the actual value of the final size. This is the one we really care about. If <span class="math inline">\(R_0 \leq 1\)</span>, the only value that satisfies <a href="#eq-final">Equation&nbsp;<span>1.16</span></a> is <span class="math inline">\(s_{\infty}=1\)</span>. In words, at the end of the epidemic, everyone will still be susceptible (i.e., no one gets infected).</p>
-<div class="cell" data-fig.asp="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## geometry of final-size equation</span></span>
+<p><span id="eq-final"><span class="math display">\[  \log(s_{\infty}) =  R_0 (s_{\infty}-1) \tag{1.16}\]</span></span></p>
+<p>This is an implicit equation for <span class="math inline">\(s_{\infty}\)</span>, the number of susceptibles at the end of the epidemic. When <span class="math inline">\(R_0 &gt; 1\)</span>, this equation has exactly two roots, only one of which lies in the interval <span class="math inline">\((0,1)\)</span>. %Subtract <span class="math inline">\(\log(s_{\infty})\)</span> from both sides and we get <span class="math inline">\(R_0 (s\_{\infty}-1)-\log(s\_{\infty})=0\)</span>. Call the whole left-hand side <span class="math inline">\(y\)</span>. <span class="math inline">\(y\)</span> will have different values for different values of <span class="math inline">\(\log(s_{\infty})\)</span>. Only a couple of those will satisfy <a href="#eq-final" class="quarto-xref">Equation&nbsp;<span>1.16</span></a>. <span class="math inline">\(\log(s_{\infty})=0\)</span> (i.e., everyone remains susceptible since there is no epidemic) will always satisfy <a href="#eq-final" class="quarto-xref">Equation&nbsp;<span>1.16</span></a> (plug it in and see!). When <span class="math inline">\(R_0&gt;1\)</span>, the other solution is the actual value of the final size. This is the one we really care about. If <span class="math inline">\(R_0 \leq 1\)</span>, the only value that satisfies <a href="#eq-final" class="quarto-xref">Equation&nbsp;<span>1.16</span></a> is <span class="math inline">\(s_{\infty}=1\)</span>. In words, at the end of the epidemic, everyone will still be susceptible (i.e., no one gets infected).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## geometry of final-size equation</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">log</span>(x), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">xaxs=</span><span class="st">"i"</span>, <span class="at">xlab=</span><span class="st">"Fraction Susceptible"</span>, <span class="at">ylab=</span><span class="st">"y"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="dv">2</span><span class="sc">*</span>(x<span class="dv">-1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">add=</span><span class="cn">TRUE</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fl">2.5</span><span class="sc">*</span>(x<span class="dv">-1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">add=</span><span class="cn">TRUE</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="dv">3</span><span class="sc">*</span>(x<span class="dv">-1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">add=</span><span class="cn">TRUE</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fl">0.9</span><span class="sc">*</span>(x<span class="dv">-1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">col=</span><span class="st">"red"</span>,<span class="at">add=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fl">0.9</span><span class="sc">*</span>(x<span class="dv">-1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">col=</span><span class="st">"red"</span>,<span class="at">add=</span><span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<p><img src="R0_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<div id="fig-final" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="R0_files/figure-html/fig-final-1.png" id="fig-final" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-final-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2
+</figcaption>
+</figure>
 </div>
 </div>
-<p>This shows a geometric interpretation of <a href="#eq-final">Equation&nbsp;<span>1.16</span></a> for various values of <span class="math inline">\(R_0 &gt; 1\)</span> in black. The point where the line <span class="math inline">\(R_0 (s_{\infty}-1)\)</span> is tangent to the curve <span class="math inline">\(\log(s_{\infty})\)</span> indicates the value of <span class="math inline">\(s_{\infty}\)</span> for a given <span class="math inline">\(R_0\)</span>. As <span class="math inline">\(R_0\)</span> gets larger, the final size of the epidemic gets larger as well (i.e., the fraction susceptible at the end of the epidemic gets smaller). Figure~<span class="math inline">\(\ref{fig:final-size}\)</span> also shows the solution when <span class="math inline">\(R_0 = 1\)</span> in red. The only tangent to the curve <span class="math inline">\(y=\log(s_{\infty})\)</span> occurs at <span class="math inline">\(s_{\infty}=1\)</span>, meaning that essentially none of the total population becomes infected when an infection is sub-critical.</p>
-<div class="cell" data-fig.asp="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## final-size curve</span></span>
+</div>
+<p>This shows a geometric interpretation of <a href="#eq-final" class="quarto-xref">Equation&nbsp;<span>1.16</span></a> for various values of <span class="math inline">\(R_0 &gt; 1\)</span> in black. The point where the line <span class="math inline">\(R_0 (s_{\infty}-1)\)</span> is tangent to the curve <span class="math inline">\(\log(s_{\infty})\)</span> indicates the value of <span class="math inline">\(s_{\infty}\)</span> for a given <span class="math inline">\(R_0\)</span>. As <span class="math inline">\(R_0\)</span> gets larger, the final size of the epidemic gets larger as well (i.e., the fraction susceptible at the end of the epidemic gets smaller). <a href="#fig-final" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> also shows the solution when <span class="math inline">\(R_0 = 1\)</span> in red. The only tangent to the curve <span class="math inline">\(y=\log(s_{\infty})\)</span> occurs at <span class="math inline">\(s_{\infty}=1\)</span>, meaning that essentially none of the total population becomes infected when an infection is sub-critical.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## final-size curve</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="cf">function</span>(ro,s) ro<span class="sc">*</span>(s<span class="dv">-1</span>) <span class="sc">-</span> <span class="fu">log</span>(s)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## s=1 always a solution; want interior one</span></span>
@@ -523,12 +548,21 @@ R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )}
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>)</span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(rrange1,fsrange1,<span class="at">col=</span><span class="fu">rgb</span>(<span class="dv">255</span>,<span class="dv">0</span>,<span class="dv">0</span>, <span class="dv">60</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>),</span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">border=</span><span class="cn">NA</span>)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">1</span>,RR), <span class="fu">c</span>(<span class="dv">0</span>,ff), <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">"blue4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">c</span>(<span class="dv">1</span>,RR), <span class="fu">c</span>(<span class="dv">0</span>,ff), <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">"blue4"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<p><img src="R0_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div id="fig-finalunc" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-finalunc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="R0_files/figure-html/fig-finalunc-1.png" id="fig-finalunc" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-finalunc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3
+</figcaption>
+</figure>
 </div>
 </div>
-<p>This figure plots the final size (<span class="math inline">\(1-s_{\infty}\)</span>) for values of <span class="math inline">\(R_0\)</span> ranging from 1-6. We can see that the curve is highly concave and approaches value of the whole population very slowly. We note the final size for <span class="math inline">\(R_0=2.5\)</span>, which is approximately the consensus estimate for the ongoing COVID-19 epidemic. The fraction remaining susceptible at the end of the epidemic is <span class="math inline">\(s_{\infty}=0.107\)</span>, so 89.3% of the population will ultimately become infected (assuming nothing changes).</p>
+</div>
+<p><a href="#fig-finalunc" class="quarto-xref">Figure&nbsp;<span>1.3</span></a> plots the final size (<span class="math inline">\(1-s_{\infty}\)</span>) for values of <span class="math inline">\(R_0\)</span> ranging from 1-6. We can see that the curve is highly concave and approaches value of the whole population very slowly. We note the final size for <span class="math inline">\(R_0=2.5\)</span>, which is approximately the consensus estimate for the ongoing COVID-19 epidemic. The fraction remaining susceptible at the end of the epidemic is <span class="math inline">\(s_{\infty}=0.107\)</span>, so 89.3% of the population will ultimately become infected (assuming nothing changes).</p>
 <p>The conclusion we can draw from all this analysis is that, in general, a fraction of the population will escape infection. That is, <span class="math inline">\(s_{\infty} &gt; 0\)</span>. This is one of the fundamental insights of mathematical theory of epidemics. It is very important to remember that final-size calculation assume that nothing changes in the epidemic. Public-health interventions (e.g., social distancing, quarantine, vaccination) and medical interventions (e.g., curing sick people) will reduce the effective reproduction number (i.e., the expected number of secondary cases produced by a case at some point later in the epidemic). This is indeed the goal of epidemic control!</p>
 <section id="the-critical-vaccination-threshold-and-herd-immunity" class="level3" data-number="1.6.1">
 <h3 data-number="1.6.1" class="anchored" data-anchor-id="the-critical-vaccination-threshold-and-herd-immunity"><span class="header-section-number">1.6.1</span> The Critical Vaccination Threshold and Herd Immunity</h3>
@@ -536,35 +570,32 @@ R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )}
 <p>For an SIR-type epidemic in a well-mixed population, it is trivial to calculate the critical vaccination threshold. The key is to bring the reproduction number below its critical value, i.e., make <span class="math inline">\(R_0 &lt; 1\)</span>. Let <span class="math inline">\(R\)</span> be the reproduction number of the immunized population and let <span class="math inline">\(0 \leq p \leq 1\)</span> be the fraction of the population successfully vaccinated. Clearly,</p>
 <p><span class="math display">\[ R \leq R_0(1-p). \]</span></p>
 <p>Simply solve for <span class="math inline">\(R&lt;1\)</span>, letting <span class="math inline">\(p_c\)</span> denote the critical vaccination fraction:</p>
-<p><span id="eq-pc"><span class="math display">\[
-  p_c = 1 - \frac{1}{R_0}.
-\tag{1.17}\]</span></span></p>
+<p><span id="eq-pc"><span class="math display">\[  p_c = 1 - \frac{1}{R_0}. \tag{1.17}\]</span></span></p>
 <section id="the-effect-of-heterogeneity" class="level4" data-number="1.6.1.1">
 <h4 data-number="1.6.1.1" class="anchored" data-anchor-id="the-effect-of-heterogeneity"><span class="header-section-number">1.6.1.1</span> The Effect of Heterogeneity</h4>
-<p><a href="#eq-pc">Equation&nbsp;<span>1.17</span></a> only applies to well-mixed populations with a single type of infected agent. Heterogeneity changes this. Natural selection arises from the differential fitness of alternate phenotypes. Individuals bearing phenotypes that make them better-suited for their current environments differentially survive and reproduce successfully compared to individuals bearing less well-adapted phenotypes for the environment. Another way of conceptualizing the action of natural selection is due to one of the architects of the New Evolutionary Synthesis, Ernst Mayr, who characterized the action of natural selection as <em>non-random elimination</em>. In this conceptualization, individuals with the least-well-suited phenotypes are eliminated from the population <span class="citation" data-cites="mayr1997">(<a href="references.html#ref-mayr1997" role="doc-biblioref">Mayr 1997</a>)</span> and those remaining do the reproduction. It turns out that this process of non-random elimination, albeit without the reproduction, is common in all sorts of heterogeneous populations. Cohort selection occurs when individuals differentially exit a population based on some (often hidden) phenotype. The hidden heterogeneity that causes differential exit from the population is typically known as <em>frailty</em>. Frailty can have profound impacts on epidemics.</p>
-<p><span class="citation" data-cites="ferrari_etal2006">Ferrari et al. (<a href="references.html#ref-ferrari_etal2006" role="doc-biblioref">2006</a>)</span> provide an important theoretical discussion of the effects of network frailty on the persistence of epidemics. They note that the behaviorally-heterogenous populations subject to the transmission of an infectious disease can be represented as networks or graphs with a heterogeneous degree distribution. The degree of a vertex in a graph is simply the number of edges that are incident to it, and the degree distribution is just aggregate of the degree of all of a given network’s vertices (essentially, a histogram of degree). In the early phases of an epidemic, individuals who are connected to many others (i.e., have high degree) are more likely to be infected than those with fewer contacts. This means that most-connected individuals are likely to be removed early in an epidemic, either through death or acquired immunity. As the most-connected vertices are differentially removed from the network, the previously strongly-connected network may break apart or otherwise become more sparse, making it easier for the epidemic to fade out (since the effective reproduction number, <span class="math inline">\(R_i\)</span>, will decrease because of markedly lower contact rates). This effect is illustrated in the following two figures. The effect of this frailty is that effective herd immunity may occur at a much lower prevalence than predicted by <a href="#eq-pc">Equation&nbsp;<span>1.17</span></a>.</p>
+<p><a href="#eq-pc" class="quarto-xref">Equation&nbsp;<span>1.17</span></a> only applies to well-mixed populations with a single type of infected agent. Heterogeneity changes this. Natural selection arises from the differential fitness of alternate phenotypes. Individuals bearing phenotypes that make them better-suited for their current environments differentially survive and reproduce successfully compared to individuals bearing less well-adapted phenotypes for the environment. Another way of conceptualizing the action of natural selection is due to one of the architects of the New Evolutionary Synthesis, Ernst Mayr, who characterized the action of natural selection as <em>non-random elimination</em>. In this conceptualization, individuals with the least-well-suited phenotypes are eliminated from the population <span class="citation" data-cites="mayr1997">(<a href="references.html#ref-mayr1997" role="doc-biblioref">Mayr 1997</a>)</span> and those remaining do the reproduction. It turns out that this process of non-random elimination, albeit without the reproduction, is common in all sorts of heterogeneous populations. Cohort selection occurs when individuals differentially exit a population based on some (often hidden) phenotype. The hidden heterogeneity that causes differential exit from the population is typically known as <em>frailty</em>. Frailty can have profound impacts on epidemics.</p>
+<p><span class="citation" data-cites="ferrari_etal2006">Ferrari et al. (<a href="references.html#ref-ferrari_etal2006" role="doc-biblioref">2006</a>)</span> provide an important theoretical discussion of the effects of network frailty on the persistence of epidemics. They note that the behaviorally-heterogenous populations subject to the transmission of an infectious disease can be represented as networks or graphs with a heterogeneous degree distribution. The degree of a vertex in a graph is simply the number of edges that are incident to it, and the degree distribution is just aggregate of the degree of all of a given network’s vertices (essentially, a histogram of degree). In the early phases of an epidemic, individuals who are connected to many others (i.e., have high degree) are more likely to be infected than those with fewer contacts. This means that most-connected individuals are likely to be removed early in an epidemic, either through death or acquired immunity. As the most-connected vertices are differentially removed from the network, the previously strongly-connected network may break apart or otherwise become more sparse, making it easier for the epidemic to fade out (since the effective reproduction number, <span class="math inline">\(R_i\)</span>, will decrease because of markedly lower contact rates). This effect is illustrated in the following two figures. The effect of this frailty is that effective herd immunity may occur at a much lower prevalence than predicted by <a href="#eq-pc" class="quarto-xref">Equation&nbsp;<span>1.17</span></a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/active_vertex.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">A heterogeneous network with a high-degree vertex highlighted. Because of its many contacts, this vertex is at risk of infection early in the epidemic.</figcaption>
+<figcaption>A heterogeneous network with a high-degree vertex highlighted. Because of its many contacts, this vertex is at risk of infection early in the epidemic.</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/most_active_removed.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">The graph becomes substantially more sparse with the five most highly-active vertices removed from it. If we continued to remove vertices with high degree, the previously connected graph would become disconnected and an epidemic would no longer be possible.</figcaption>
+<figcaption>The graph becomes substantially more sparse with the five most highly-active vertices removed from it. If we continued to remove vertices with high degree, the previously connected graph would become disconnected and an epidemic would no longer be possible.</figcaption>
 </figure>
 </div>
 <p>Network frailty may have been the culprit underlying the famous failure of three high-profile randomized, controlled trials of STD treatment and behavior change interventions to reduce HIV incidence in the East African cities of Mwanza, Tanzania and Rakai and Masaka, Uganda <span class="citation" data-cites="orroth_etal2003">(<a href="references.html#ref-orroth_etal2003" role="doc-biblioref">Orroth et al. 2003</a>)</span>.</p>
-<p>It is also possible that the effective herd-immunity threshold will be higher than <span class="math inline">\(p_c\)</span> predicted by <a href="#eq-pc">Equation&nbsp;<span>1.17</span></a>. <span class="citation" data-cites="salathe_bonhoffer2008">Salathé and Bonhoeffer (<a href="references.html#ref-salathe_bonhoffer2008" role="doc-biblioref">2008</a>)</span> show that when people with similar susceptibilities differentially cluster (a phenomenon known as <em>homophily</em>), the critical herd-immunity threshold can be substantially higher than predicted by <a href="#eq-pc">Equation&nbsp;<span>1.17</span></a>. This turns out to be extremely important for the COVID-19 pandemic experience in the United States <span class="citation" data-cites="smaldino_jones2021">(<a href="references.html#ref-smaldino_jones2021" role="doc-biblioref">Smaldino and Jones 2021</a>)</span>.</p>
+<p>It is also possible that the effective herd-immunity threshold will be higher than <span class="math inline">\(p_c\)</span> predicted by <a href="#eq-pc" class="quarto-xref">Equation&nbsp;<span>1.17</span></a>. <span class="citation" data-cites="salathe_bonhoffer2008">Salathé and Bonhoeffer (<a href="references.html#ref-salathe_bonhoffer2008" role="doc-biblioref">2008</a>)</span> show that when people with similar susceptibilities differentially cluster (a phenomenon known as <em>homophily</em>), the critical herd-immunity threshold can be substantially higher than predicted by <a href="#eq-pc" class="quarto-xref">Equation&nbsp;<span>1.17</span></a>. This turns out to be extremely important for the COVID-19 pandemic experience in the United States <span class="citation" data-cites="smaldino_jones2021">(<a href="references.html#ref-smaldino_jones2021" role="doc-biblioref">Smaldino and Jones 2021</a>)</span>.</p>
 </section>
 </section>
 </section>
 <section id="changing-r_0" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="changing-r_0"><span class="header-section-number">1.7</span> Changing <span class="math inline">\(R_0\)</span></h2>
 <p>For a given small change in the environment, broadly construed, the change in <span class="math inline">\(R_0\)</span> will be:</p>
-<p><span id="eq-deltar0"><span class="math display">\[
-\frac{d R_0}{d \epsilon} = \frac{d \tau}{d \epsilon}\, \frac{d
+<p><span id="eq-deltar0"><span class="math display">\[\frac{d R_0}{d \epsilon} = \frac{d \tau}{d \epsilon}\, \frac{d
   R_0}{d\tau} + \frac{d\bar{c}}{d\epsilon}\, \frac{dR_0}{d\bar{c}} +
 \frac{d\delta}{d\epsilon}\, \frac{dR_0}{d\delta}
 \tag{1.18}\]</span></span></p>
@@ -575,7 +606,7 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 <p>We want to bring the effective reproduction number <span class="math inline">\(R_0\)</span> below one in a multi-host epidemic. Clearly, reducing the number of infections in any cell in the next-generation matrix will reduce <span class="math inline">\(R_0\)</span>, but which will provide the greatest reduction for a given effort? To figure this out, we calculate the <em>sensitivities</em> of <span class="math inline">\(R_0\)</span> to a change in the various entries of the next-generation matrix. These are the partial derivatives (i.e., the rate of change in <span class="math inline">\(R_0\)</span> with respect to <em>g</em><sub>ij</sub> holding everything else constant).</p>
 <p><span class="math display">\[ s_{ij} = \frac{\partial R_0}{\partial g_{ij}} \]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>calc.sens <span class="ot">&lt;-</span> <span class="cf">function</span>(G){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>calc.sens <span class="ot">&lt;-</span> <span class="cf">function</span>(G){</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  ev <span class="ot">&lt;-</span> <span class="fu">eigen</span>(G)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  lmax <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">Re</span>(ev<span class="sc">$</span>values)<span class="sc">==</span><span class="fu">max</span>(<span class="fu">Re</span>(ev<span class="sc">$</span>values)))</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  U <span class="ot">&lt;-</span> ev<span class="sc">$</span>vectors</span>
@@ -585,7 +616,7 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> v<span class="sc">%o%</span>u</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(s)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -596,18 +627,17 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
             0 &amp; g_{B \leftarrow D} &amp; g_{B \leftarrow H} \\
             g_{D \leftarrow B} &amp; 0 &amp; 0 \\
             g_{H \leftarrow B}  &amp; 0 &amp; 0
-            \end{array} \right],
-\]</span></p>
+            \end{array} \right],\]</span></p>
 <p>where (e.g.) <span class="math inline">\(g_{B \leftarrow D}\)</span> is the dog-infecting-bug reproduction number.</p>
 <p><span class="citation" data-cites="cohen_gurtler2001">Cohen and Gürtler (<a href="references.html#ref-cohen_gurtler2001" role="doc-biblioref">2001</a>)</span> give some data that allow us to estimate the next generation matrix. We fill in the missing parameters with educated guesses (more on this later) and calculate the sensitivities.</p>
-<div class="cell" data-hash="R0_cache/html/unnamed-chunk-4_9ec65d8127332384943d93e9a078939e">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> <span class="fu">matrix</span>( <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">122.01</span>,<span class="fl">7.47</span>, <span class="fl">0.1992</span>,<span class="dv">0</span>,<span class="dv">0</span>, <span class="fl">0.1992</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">nr=</span><span class="dv">3</span>, <span class="at">nc=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> <span class="fu">matrix</span>( <span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">122.01</span>,<span class="fl">7.47</span>, <span class="fl">0.1992</span>,<span class="dv">0</span>,<span class="dv">0</span>, <span class="fl">0.1992</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">nr=</span><span class="dv">3</span>, <span class="at">nc=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># first, what is R_0?</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">eigen</span>(G)<span class="sc">$</span>values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">eigen</span>(G)<span class="sc">$</span>values</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -5.078623  5.078623  0.000000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(S <span class="ot">&lt;-</span> <span class="fu">calc.sens</span>(G))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(S <span class="ot">&lt;-</span> <span class="fu">calc.sens</span>(G))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           [,1]       [,2]       [,3]
 [1,]  0.5000000 0.01961161 0.01961161
@@ -621,11 +651,10 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 <h1 data-number="2"><span class="header-section-number">2</span> Elasticities</h1>
 <p>Sensitivities tell us about the absolute change in <span class="math inline">\(R_0\)</span> given a small change in one of the entries in <span class="math inline">\(\mathbf{G}\)</span>. Sometimes we want to know about the proportional sensitivities though. Use a trick invented by Carl Jacobi in the mid-nineteenth century. Define a proportional sensitivity (or <em>elasticity</em>) as</p>
 <p><span class="math display">\[ e_{ij} = \frac{g_{ij}}{R_0} \cdot \frac{\partial R_0}{\partial
-  g_{ij}} = \frac{\partial \log(R_0)}{\partial \log(g_{ij})}.
-\]</span></p>
+  g_{ij}} = \frac{\partial \log(R_0)}{\partial \log(g_{ij})}.\]</span></p>
 <p>Elasticities answer the following question: if <span class="math inline">\(g_{ij}\)</span> increases by 1%, by what percentage will <span class="math inline">\(R_0\)</span> increase? Elasticities also have the convenient property of summing to one across all elements of the next generation matrix. They thus represent the fraction of the total potential reduction embodied in each cell of the next generation matrix (assuming everything else stays the same).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>calc.elas <span class="ot">&lt;-</span> <span class="cf">function</span>(G){</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>calc.elas <span class="ot">&lt;-</span> <span class="cf">function</span>(G){</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  ev <span class="ot">&lt;-</span> <span class="fu">eigen</span>(G)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  lmax <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">Re</span>(ev<span class="sc">$</span>values)<span class="sc">==</span><span class="fu">max</span>(<span class="fu">Re</span>(ev<span class="sc">$</span>values)))</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  R0 <span class="ot">&lt;-</span> ev<span class="sc">$</span>values[lmax]</span>
@@ -639,7 +668,7 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(e)</span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>(E <span class="ot">&lt;-</span> <span class="fu">calc.elas</span>(G))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>(E <span class="ot">&lt;-</span> <span class="fu">calc.elas</span>(G))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           [,1]      [,2]       [,3]
 [1,] 0.00000000 0.4711538 0.02884615
@@ -648,31 +677,28 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 </div>
 </div>
 <p>So our elasticity matrix looks like this:</p>
-<p><span class="math display">\[
-\mathbf{E} = \left[ \begin{array}{ccc}
+<p><span class="math display">\[\mathbf{E} = \left[ \begin{array}{ccc}
 0.00 &amp; 0.47 &amp; 0.03 \\
 0.47 &amp; 0.00 &amp; 0.00 \\
 0.03 &amp; 0.00 &amp; 0.00
-\end{array} \right].
-\]</span></p>
+\end{array} \right].\]</span></p>
 <p>Transmission from bugs to dogs and dogs to bugs accounts for more than 94% of the elasticity. Clearly, we need to stop the canine transmission cycle! The elasticities of all pairs (e.g., bugs to dogs/dogs to bugs) are identical because of a feature of elasticities identified by <span class="citation" data-cites="vongroenendael_etal1994">Groenendael et al. (<a href="references.html#ref-vongroenendael_etal1994" role="doc-biblioref">1994</a>)</span>. In brief, the sum of elasticities of the incoming transitions to a vertex in the transmission graph will equal the sum of the elasticities of the outgoing transitions. Because humans and dogs don’t infect each other, this means that the elasticities involving bugs and the two mammal species (i.e., humans, dogs) will be equal to each other. More later.</p>
 </section>
 <section id="other-structured-epidemic-models" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Other Structured Epidemic Models</h1>
 <p>All of the examples so far have involved multi-host infections. There are many important ways that disease transmission is structured <em>within</em> human populations as well. For example, the transmission of respiratory infections like influenza is quite strongly age-structured <span class="citation" data-cites="hill_longini2003">(<a href="references.html#ref-hill_longini2003" role="doc-biblioref">Hill and Longini 2003</a>)</span>. Indeed, social categories can have a profound impact on the transmission dynamics of epidemics. <span class="citation" data-cites="kucharski_etal2014">Kucharski et al. (<a href="references.html#ref-kucharski_etal2014" role="doc-biblioref">2014</a>)</span> show that during the 2009 H1N1 Influenza pandemic, infection risk among people in Hong Kong was more influenced by the average reported social mixing behavior of an individual’s age group, than it was by their own reported contacts. For easily-transmitted respiratory pathogens like influenza A, the aggregate patterns can overwhelm the particular behavior of individuals.</p>
 <p>We can use sensitivity/elasticity analysis of the next-generation matrix to help us determine the categories of people on whom we should concentrate our epidemic-control efforts if we want to have maximum effect for a given effort.</p>
-<p><span class="citation" data-cites="hill_longini2003">Hill and Longini (<a href="references.html#ref-hill_longini2003" role="doc-biblioref">2003</a>)</span> present a next-generation matrix for influenza-A transmission calculated from data presented in <span class="citation" data-cites="longini_etal1978">Longini, Ackerman, and Elveback (<a href="references.html#ref-longini_etal1978" role="doc-biblioref">1978</a>)</span>:</p>
+<p><span class="citation" data-cites="hill_longini2003">Hill and Longini (<a href="references.html#ref-hill_longini2003" role="doc-biblioref">2003</a>)</span> present a next-generation matrix for influenza-A transmission calculated from data presented in <span class="citation" data-cites="longini_etal1978">Longini et al. (<a href="references.html#ref-longini_etal1978" role="doc-biblioref">1978</a>)</span>:</p>
 <p><span class="math display">\[ \mathbf{G} = \left[ \begin{array}{ccccc}
     0.60 &amp; 0.10 &amp; 0.10 &amp; 0.10 &amp; 0.10 \\
     0.20 &amp; 1.70 &amp; 0.30 &amp; 0.20 &amp; 0.20 \\
     0.40 &amp; 0.30 &amp; 0.50 &amp; 0.40 &amp; 0.30 \\
     0.20 &amp; 0.10 &amp; 0.30 &amp; 0.20 &amp; 0.10 \\
     0.10 &amp; 0.10 &amp; 0.10 &amp; 0.10 &amp; 0.10
-               \end{array} \right]
-\]</span></p>
+               \end{array} \right] \]</span></p>
 <p>where the classes are: (1) pre-school age, (2) school age, (3) young adult, (4) mid-adult, (5) old adult.</p>
-<div class="cell" data-hash="R0_cache/html/unnamed-chunk-6_c9e917ef6b0cc37e278d2fc6f00dd627">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> <span class="fu">matrix</span>( </span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> <span class="fu">matrix</span>( </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fl">0.60</span>,<span class="fl">0.10</span>,<span class="fl">0.10</span>,<span class="fl">0.10</span>,<span class="fl">0.10</span>,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.20</span>,<span class="fl">1.70</span>,<span class="fl">0.30</span>,<span class="fl">0.20</span>,<span class="fl">0.20</span>,</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.40</span>,<span class="fl">0.30</span>,<span class="fl">0.50</span>,<span class="fl">0.40</span>,<span class="fl">0.30</span>,</span>
@@ -680,7 +706,7 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.10</span>,<span class="fl">0.10</span>,<span class="fl">0.10</span>,<span class="fl">0.10</span>,<span class="fl">0.10</span>), <span class="at">nr=</span><span class="dv">5</span>, <span class="at">nc=</span><span class="dv">5</span>,</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>(E <span class="ot">&lt;-</span> <span class="fu">calc.elas</span>(G))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>(E <span class="ot">&lt;-</span> <span class="fu">calc.elas</span>(G))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            [,1]        [,2]        [,3]        [,4]         [,5]
 [1,] 0.010155405 0.013880374 0.004378325 0.001901094 0.0012386153
@@ -689,7 +715,7 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 [4,] 0.002477231 0.010157612 0.009612131 0.002782429 0.0009064146
 [5,] 0.001081376 0.008868129 0.002797298 0.001214603 0.0007913475</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(E,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(E,<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
 [1,] 0.01 0.01 0.00 0.00 0.00
@@ -700,23 +726,23 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 </div>
 </div>
 <p>We can see that, overwhelmingly, the most important task should be controlling transmission between school-age children. This should not be that surprising, given the fact that the entry for the <strong>G</strong>-matrix for within-school-age transmission is more that three times higher than for any other pairwise value. Note that the elasticity for this transmission is over 19 times higher than any other dyad in the population.</p>
-<p><span class="citation" data-cites="longini_etal1978">Longini, Ackerman, and Elveback (<a href="references.html#ref-longini_etal1978" role="doc-biblioref">1978</a>)</span> note that different infections will have different optimal patterns of control and that these depend critically on the age-structure of transmission for the different pathogens.</p>
+<p><span class="citation" data-cites="longini_etal1978">Longini et al. (<a href="references.html#ref-longini_etal1978" role="doc-biblioref">1978</a>)</span> note that different infections will have different optimal patterns of control and that these depend critically on the age-structure of transmission for the different pathogens.</p>
 <section id="simple-model-for-disease-with-high--and-low-risk-subpopulations" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="simple-model-for-disease-with-high--and-low-risk-subpopulations"><span class="header-section-number">3.1</span> Simple Model for Disease with High- and Low-Risk Subpopulations</h2>
-<p>As we saw in <a href="mixing.html#sec-struct"><span>Section&nbsp;4.1</span></a>, reducing contacts with the low-risk/high-activity subpopulation is the most effective way to flatten the epidemic curve.</p>
+<p>As we saw in <a href="mixing.html#sec-struct" class="quarto-xref"><span>Section 4.1</span></a>, reducing contacts with the low-risk/high-activity subpopulation is the most effective way to flatten the epidemic curve.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utility function</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utility function</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>make2x2 <span class="ot">&lt;-</span> <span class="cf">function</span>(a,b,c,d) <span class="fu">matrix</span>( <span class="fu">c</span>(a,b,c,d), <span class="at">nr=</span><span class="dv">2</span>, <span class="at">nc=</span><span class="dv">2</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># beta matrix: (0.5,, 0.15, 0.05, 0.5)</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># population structure is 2/3 low-risk, 1/3 high-risk</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># everyone recovers at rate 1/5</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>(G <span class="ot">&lt;-</span> <span class="fu">make2x2</span>(<span class="fl">0.5</span><span class="sc">*</span>.<span class="dv">67</span>, <span class="fl">0.15</span><span class="sc">*</span><span class="fl">0.33</span>, <span class="fl">0.05</span><span class="sc">*</span><span class="fl">0.67</span>, <span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.33</span>)<span class="sc">*</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>(G <span class="ot">&lt;-</span> <span class="fu">make2x2</span>(<span class="fl">0.5</span><span class="sc">*</span>.<span class="dv">67</span>, <span class="fl">0.15</span><span class="sc">*</span><span class="fl">0.33</span>, <span class="fl">0.05</span><span class="sc">*</span><span class="fl">0.67</span>, <span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.33</span>)<span class="sc">*</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       [,1]   [,2]
 [1,] 1.6750 0.2475
 [2,] 0.1675 0.8250</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(E <span class="ot">&lt;-</span> <span class="fu">calc.elas</span>(G))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(E <span class="ot">&lt;-</span> <span class="fu">calc.elas</span>(G))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          [,1]       [,2]
 [1,] 0.9253696 0.02555400
@@ -736,30 +762,24 @@ decrease the contact rate between hosts because of behavioral modulation to avoi
 <section id="sec-virulence" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="sec-virulence"><span class="header-section-number">3.2</span> Optimal Virulence: Pathogen Life History Evolution</h2>
 <p>But enough about you, let’s talk about me for a while. It’s instructive to think about epidemics from the pathogen’s perspective. Pathogens bear biological information in their nucleic acids. This information varies from one copy of a pathogen to another, and the ability of a pathogen to persist and multiply can be a function of this variability. We therefore have fulfilled the necessary and sufficient conditions for natural selection. Pathogens evolve.</p>
-<p>We will consider a model in which transmissibility and disease-induced mortality trade-off introduced by <span class="citation" data-cites="vanbaalensabelis1995">Baalen and Sabelis (<a href="references.html#ref-vanbaalensabelis1995" role="doc-biblioref">1995</a>)</span>. This interaction is mediated by virulence, which we will take to be proportional to parasite burden or parasitemia. More copies of a virus (say) means that <em>conditional on contact</em> with an infected individual, the pathogen is more likely to be transmitted. However, more viral copies means the host is sicker – and potentially dead. Dead hosts do not transmit and very sick hosts are less likely to be up and interacting with susceptibles.</p>
+<p>We will consider a model in which transmissibility and disease-induced mortality trade-off introduced by <span class="citation" data-cites="vanbaalen_sabelis1995"><span class="nocase">van Baalen and Sabelis</span> (<a href="references.html#ref-vanbaalen_sabelis1995" role="doc-biblioref">1995</a>)</span>. This interaction is mediated by virulence, which we will take to be proportional to parasite burden or parasitemia. More copies of a virus (say) means that <em>conditional on contact</em> with an infected individual, the pathogen is more likely to be transmitted. However, more viral copies means the host is sicker—and potentially dead. Dead hosts do not transmit and very sick hosts are less likely to be up and interacting with susceptibles.</p>
 <p>Consider a directly-transmitted infection from which there is no recovery (e.g., Herpes Simplex Virus). The population experiences a baseline mortality rate, <span class="math inline">\(\mu\)</span>, and a disease-induced mortality <span class="math inline">\(\delta\)</span>.</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{aligned}
   ds/dt &amp; =  -\beta si - \mu s \\
   di/dt &amp; =  \beta si - (\mu + \delta) i,
-\end{aligned}
-\]</span></p>
+\end{aligned}\]</span></p>
 <p>It is straightforward to show that the basic reproduction number is given by:</p>
-<p><span id="eq-ro1"><span class="math display">\[
-R_0 = \frac{\beta}{\mu+\delta} &gt; 1,
-\tag{3.1}\]</span></span></p>
+<p><span id="eq-ro1"><span class="math display">\[ R_0 = \frac{\beta}{\mu+\delta} &gt; 1,  \tag{3.1}\]</span></span></p>
 <p>The parameter <span class="math inline">\(\mu\)</span> is independent of the epidemic, but the parameters, <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\delta\)</span> can conceivably be functions of virulence, which we denote by <span class="math inline">\(x\)</span>.</p>
 <p>An Evolutionary Stable Strategy (ESS) is a phenotype that can not be invaded by a rare mutant. Loosely speaking, it represents the optimal phenotype. The ESS virulence occurs where <span class="math inline">\(dR_0/dx = 0\)</span>.</p>
-<p>Differentiate <a href="#eq-ro1">Equation&nbsp;<span>3.1</span></a> with respect to <span class="math inline">\(x\)</span> using the quotient rule:</p>
+<p>Differentiate <a href="#eq-ro1" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> with respect to <span class="math inline">\(x\)</span> using the quotient rule:</p>
 <p><span class="math display">\[ \frac{dR_0}{dx} = \frac{\beta'(\mu + \delta) - \delta' \beta}{(\mu +
   \delta)^2} = 0 \]</span></p>
 <p>Rearranging and evaluating <span class="math inline">\(\beta(x)\)</span> and <span class="math inline">\(\delta(x)\)</span> at the ESS values of <span class="math inline">\(x\)</span> (denoted <span class="math inline">\(x^*\)</span>), we have:</p>
-<p><span id="eq-mvt"><span class="math display">\[
-\frac{d\beta(x)}{d\delta(x)} = \frac{\beta(x^*)}{\mu+\delta(x^*)}
-\tag{3.2}\]</span></span></p>
-<p>This result has a nice geometric interpretation. The ESS virulence occurs where a line rooted at the origin is tangent to the curve that relates <span class="math inline">\(\beta\)</span> to <span class="math inline">\(\delta\)</span>. This result is known as the Marginal Value Theorem and has applications in economics and ecology as well as epidemiology. The MVT model for optimal virulence is plotted in <a href="#eq-mvt">Equation&nbsp;<span>3.2</span></a>. In the lower curve, the tangent line hits further out on the horizontal axis and mortality is higher.</p>
-<div class="cell" data-fig.asp="1">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="at">length=</span><span class="dv">500</span>)</span>
+<p><span id="eq-mvt"><span class="math display">\[ \frac{d\beta(x)}{d\delta(x)} = \frac{\beta(x^*)}{\mu+\delta(x^*)} \tag{3.2}\]</span></span></p>
+<p>This result has a nice geometric interpretation. The ESS virulence occurs where a line rooted at the origin is tangent to the curve that relates <span class="math inline">\(\beta\)</span> to <span class="math inline">\(\delta\)</span>. This result is known as the Marginal Value Theorem and has applications in economics and ecology as well as epidemiology. The MVT model for optimal virulence is plotted in <a href="#eq-mvt" class="quarto-xref">Equation&nbsp;<span>3.2</span></a>. In the lower curve, the tangent line hits further out on the horizontal axis and mortality is higher.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>,<span class="at">length=</span><span class="dv">500</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utility function fp&gt; 0 fpp &lt; 0</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># turns out that RMarkdown does not handle comments with single quotes </span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># fp == deriv of f; fpp == 2nd deriv of f</span></span>
@@ -793,17 +813,21 @@ R_0 = \frac{\beta}{\mu+\delta} &gt; 1,
 <span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(<span class="dv">0</span>,<span class="fu">f</span>(soln<span class="sc">$</span>root),soln<span class="sc">$</span>root,<span class="fu">f</span>(soln<span class="sc">$</span>root), <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
 <span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(delta,<span class="st">"*"</span>)),<span class="dv">1</span>,<span class="at">at=</span>soln<span class="sc">$</span>root, <span class="at">padj=</span><span class="dv">1</span>)</span>
 <span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(beta,<span class="st">"*"</span>)),<span class="dv">2</span>,<span class="at">at=</span><span class="fu">f</span>(soln<span class="sc">$</span>root),<span class="at">padj=</span><span class="fl">0.5</span>, <span class="at">adj=</span><span class="fl">1.5</span>, <span class="at">las=</span><span class="dv">2</span>)</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">expression</span>(mu),<span class="dv">1</span>,<span class="at">at=</span><span class="dv">5</span>, <span class="at">padj=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="fu">expression</span>(mu),<span class="dv">1</span>,<span class="at">at=</span><span class="dv">5</span>, <span class="at">padj=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<p><img src="R0_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="R0_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><span class="citation" data-cites="frank1996">Frank (<a href="references.html#ref-frank1996" role="doc-biblioref">1996</a>)</span> has a very thorough review of models of the evolution of virulence.</p>
 </section>
 <section id="the-sir-model" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="the-sir-model"><span class="header-section-number">3.3</span> The SIR Model</h2>
-<div class="cell" data-fig.asp="1">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(deSolve)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(deSolve)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="do">## define model equations</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>sir <span class="ot">&lt;-</span> <span class="cf">function</span>(t,x,parms){</span>
@@ -834,20 +858,28 @@ R_0 = \frac{\beta}{\mu+\delta} &gt; 1,
 <span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Time"</span>, <span class="at">ylab=</span><span class="st">"Population Size"</span>)</span>
 <span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(stateMatrix[,<span class="st">"time"</span>], stateMatrix[,<span class="st">"I"</span>], <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
 <span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(stateMatrix[,<span class="st">"time"</span>], stateMatrix[,<span class="st">"R"</span>], <span class="at">col=</span><span class="st">"green"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"right"</span>, <span class="fu">c</span>(<span class="st">"S"</span>,<span class="st">"I"</span>,<span class="st">"R"</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>,<span class="st">"red"</span>,<span class="st">"green"</span>), <span class="at">lwd=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"right"</span>, <span class="fu">c</span>(<span class="st">"S"</span>,<span class="st">"I"</span>,<span class="st">"R"</span>), <span class="at">col=</span><span class="fu">c</span>(<span class="st">"blue"</span>,<span class="st">"red"</span>,<span class="st">"green"</span>), <span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<p><img src="R0_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="R0_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>An epidemic means infections are increasing. We can look at just the take-off, where <span class="math inline">\(dI/dt &gt; 0\)</span></p>
-<div class="cell" data-fig.asp="1">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Just show the take-off</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Just show the take-off</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stateMatrix[,<span class="st">"time"</span>], stateMatrix[,<span class="st">"I"</span>], <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">"magenta"</span>,</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Time"</span>,</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"New Infections"</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">15</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<p><img src="R0_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="R0_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -856,44 +888,48 @@ R_0 = \frac{\beta}{\mu+\delta} &gt; 1,
 <p>Suppose you take a COVID-19 rapid test such as a Binax Antigen Self Test. You get back a positive result, indicating that the test was found evidence for SARS-CoV-2 antigens. Do you have COVID-19? We can calculate this probability using Bayes’ Theorem, the rule for updating beliefs in light of new data. The answer may surprise you.</p>
 <p>Let’s start with a few definitions. Let <span class="math inline">\(I\)</span> indicate the presence of infection and <span class="math inline">\(\sim I\)</span> indicate no infection. The probability of a positive test, given infection is <span class="math inline">\(P(P|I)\)</span>. This probability is known as the <strong>true positive rate</strong> or the <strong>sensitivity</strong> of the test. The probability of a positive test given no infection is <span class="math inline">\(P(P|\sim I)\)</span>. This is the <strong>false positive rate</strong>, which is the complement of the <strong>specificity</strong> of the test (i.e., <span class="math inline">\(=1 - \textrm{specificity}\)</span>). Finally, let <span class="math inline">\(P(I)\)</span> be the probability of infection or the <strong>prevalence</strong> of infection. In a surveillance setting, we often estimate prevalence using the <strong>positivity rate</strong> for surveillance testing.</p>
 <p>Bayes’ Theorem tells us that the probability of infection, given a positive test is proportional to the sensitivity of the test times the prevalence. If we want to turn this proportionality into a true probability, we need to normalize by the probability of a positive test. In the case of a diagnostic test like this, there are two mutually-exclusive ways that you can get a positive test: it can be a true positive or a false positive. We put this all together and get the following:</p>
-<p><span class="math display">\[
-P(I|P) = \frac{P(P|I)P(I)}{P(P)} = \frac{P(P|I)P(I)}{P(P|I)P(D) + P(P|\sim I)P(\sim I)}
-\]</span></p>
+<p><span class="math display">\[P(I|P) = \frac{P(P|I)P(I)}{P(P)} = \frac{P(P|I)P(I)}{P(P|I)P(D) + P(P|\sim I)P(\sim I)}\]</span></p>
 <p>Using the epidemiological terms:</p>
-<p><span class="math display">\[
-P(\textrm{Infection}|\textrm{Positive Test}) = \frac{\textrm{Sensitivity} \cdot \textrm{Prevalence}}{\textrm{Sensitivity} \cdot \textrm{Prevalence}\; +\; (1 - \textrm{Specificity}) \cdot (1 - \textrm{Prevalence})}
-\]</span></p>
+<p><span class="math display">\[P(\textrm{Infection}|\textrm{Positive Test}) = \frac{\textrm{Sensitivity} \cdot \textrm{Prevalence}}{\textrm{Sensitivity} \cdot \textrm{Prevalence}\; +\; (1 - \textrm{Specificity}) \cdot (1 - \textrm{Prevalence})}\]</span></p>
 <p>A 2020 study by Prince-Guerra and colleagues in <a href="https://www.cdc.gov/mmwr/volumes/70/wr/mm7003e3.htm">MMWR</a> found that the BinaxNow rapid test had a sensitivity of 64.2% and a specificity of nearly 100%. Since it’s not exactly perfectly specific (and certainty has a disproportionate impact on Bayesian calculations), call the specificity 99%. We can write a simple function to calculate the positive predictive value. Suppose that we have a local positivity rate (i.e., prevalence) of 5%.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ppv <span class="ot">&lt;-</span> <span class="cf">function</span>(sens,spec,prev) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ppv <span class="ot">&lt;-</span> <span class="cf">function</span>(sens,spec,prev) {</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                sens<span class="sc">*</span>prev<span class="sc">/</span>(sens<span class="sc">*</span>prev <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>spec)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>prev))</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>sens <span class="ot">&lt;-</span> <span class="fl">0.642</span></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fl">0.99</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ppv</span>(sens,spec,<span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ppv</span>(sens,spec,<span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.7716346</code></pre>
 </div>
 </div>
 <p>That actually seems pretty solid. A positive Binax test indicates a 77% chance of infection, given a local prevalence of 5%, even though the sensitivity of the test is pretty low. We get this high probability of infection from such a low-sensitivity test because the specificity is so high. Suppose the specificity was only 95%. Using the same values for sensitivity and prevalence, this would cause our PPV to drop to 0.4032663. A small absolute change in specificity leads to a huge change in the the PPV.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>prev <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.2</span>,,<span class="dv">100</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>prev <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fl">0.2</span>,,<span class="dv">100</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prev,<span class="fu">ppv</span>(<span class="at">sens=</span>sens,<span class="at">spec=</span>spec,<span class="at">prev=</span>prev), <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">2</span>,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Prevalence"</span>, <span class="at">ylab=</span><span class="st">"PPV"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Prevalence"</span>, <span class="at">ylab=</span><span class="st">"PPV"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<p><img src="R0_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="R0_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can also visualize the effect of decreasing specificity on the PPV. According the the <a href="https://coronavirus.jhu.edu/region/us/florida">Johns Hopkins Coronavirus Resource Center</a>, on 24 December 2021, the state of Florida reported an 11% positivity rate for COVID-19 tests, while the state of California reported a 4% positivity rate.</p>
-<div class="cell" data-fig.asp="1">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="fl">0.8</span>,,<span class="dv">100</span>)</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="fl">0.8</span>,,<span class="dv">100</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(spec,<span class="fu">ppv</span>(<span class="at">sens=</span>sens,<span class="at">spec=</span>spec,<span class="at">prev=</span><span class="fl">0.11</span>), <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">2</span>,</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">xlab=</span><span class="st">"Specificity"</span>, <span class="at">ylab=</span><span class="st">"PPV"</span>)</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(spec, <span class="fu">ppv</span>(<span class="at">sens=</span>sens,<span class="at">spec=</span>spec,<span class="at">prev=</span><span class="fl">0.04</span>), <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"orange"</span>)</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"Effects of Specificity on PPV in High- and Low-Prevalence Settings"</span>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,<span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"FL"</span>), <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="fu">c</span>(<span class="st">"black"</span>,<span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>,<span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"FL"</span>), <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="fu">c</span>(<span class="st">"black"</span>,<span class="st">"orange"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<p><img src="R0_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="R0_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -903,16 +939,13 @@ P(\textrm{Infection}|\textrm{Positive Test}) = \frac{\textrm{Sensitivity} \cdot 
 Anderson, R. M., G. F. Medley, R. M. May, and A. M. Johnson. 1986. <span>“A Preliminary Study of the Transmission Dynamics of the <span>Human Immunodeficiency Virus (HIV)</span>, the Causative Agent of <span>AIDS</span>.”</span> <em>IMA Journal of Mathematics Applied in Medicine and Biology</em> 3: 229–63. <a href="https://doi.org/10.1093/imammb/3.4.229">https://doi.org/10.1093/imammb/3.4.229</a>.
 </div>
 <div id="ref-anderson_may1991" class="csl-entry" role="listitem">
-Anderson, Roy M., and Robert M. May. 1991. <em>Infectious Diseases of Humans: Dynamics and Control</em>. Oxford: Oxford University Press.
-</div>
-<div id="ref-vanbaalensabelis1995" class="csl-entry" role="listitem">
-Baalen, M. van, and M. W. Sabelis. 1995. <span>“The Dynamics of Multiple Infection and the Evolution of Virulence.”</span> <em>American Naturalist</em> 146 (6): 881–910. <a href="http://www.jstor.org/stable/2463102">http://www.jstor.org/stable/2463102</a>.
+Anderson, Roy M., and Robert M. May. 1991. <em>Infectious Diseases of Humans: Dynamics and Control</em>. Oxford University Press.
 </div>
 <div id="ref-cohen_gurtler2001" class="csl-entry" role="listitem">
 Cohen, J. E., and R. E. Gürtler. 2001. <span>“Modeling Household Transmission of <span>American Trypanosomiasis</span>.”</span> <em>Science</em> 293: 694–98. <a href="https://doi.org/10.1126/science.1060638">https://doi.org/10.1126/science.1060638</a>.
 </div>
 <div id="ref-diekmannheesterbeeck2000" class="csl-entry" role="listitem">
-Diekmann, O., and H. Heesterbeek. 2000. <em>Mathematical Epidemiology of Infectious Diseases: Model Building, Analysis and Interpretation</em>. New York: Wiley.
+Diekmann, O., and H. Heesterbeek. 2000. <em>Mathematical Epidemiology of Infectious Diseases: Model Building, Analysis and Interpretation</em>. Wiley.
 </div>
 <div id="ref-diekmann_etal1990" class="csl-entry" role="listitem">
 Diekmann, O., J. A. P. Heesterbeek, and J. A. J. Metz. 1990. <span>“On the Definition and the Computation of the Basic Reproduction Ratio <span><span class="math inline">\(R_0\)</span></span> in Models for Infectious Diseases in Heterogeneous Populations.”</span> <em>Journal of Mathematical Biology</em> 28 (4): 365–82. <a href="https://doi.org/10.1007/BF00178324">https://doi.org/10.1007/BF00178324</a>.
@@ -945,7 +978,7 @@ Hethcote, H. W., and J. A. Yorke. 1984. <em>Gonorrhea: Transmission Dynamics and
 Hill, A. N., and I. M. Longini. 2003. <span>“The Critical Vaccination Fraction for Heterogeneous Epidemic Models.”</span> <em>Mathematical Biosciences</em> 181 (1): 85–106. <a href="https://doi.org/10.1016/S0025-5564(02)00129-3">https://doi.org/10.1016/S0025-5564(02)00129-3</a>.
 </div>
 <div id="ref-kucharski_etal2014" class="csl-entry" role="listitem">
-Kucharski, Adam J., Kin O. Kwok, Vivian W. I. Wei, Benjamin J. Cowling, Jonathan M. Read, Justin Lessler, Derek A. Cummings, and Steven Riley. 2014. <span>“The Contribution of Social Behaviour to the Transmission of <span>Influenza A</span> in a Human Population.”</span> <em>PLOS Pathogens</em> 10 (6): e1004206. <a href="https://doi.org/10.1371/journal.ppat.1004206">https://doi.org/10.1371/journal.ppat.1004206</a>.
+Kucharski, Adam J., Kin O. Kwok, Vivian W. I. Wei, et al. 2014. <span>“The Contribution of Social Behaviour to the Transmission of <span>Influenza A</span> in a Human Population.”</span> <em>PLOS Pathogens</em> 10 (6): e1004206. <a href="https://doi.org/10.1371/journal.ppat.1004206">https://doi.org/10.1371/journal.ppat.1004206</a>.
 </div>
 <div id="ref-longini_etal1978" class="csl-entry" role="listitem">
 Longini, Ira M., Eugene Ackerman, and Lila R. Elveback. 1978. <span>“An Optimization Model for Influenza <span>A</span> Epidemics.”</span> <em>Mathematical Biosciences</em> 38 (1): 141–57. <a href="https://doi.org/10.1016/0025-5564(78)90023-8">https://doi.org/10.1016/0025-5564(78)90023-8</a>.
@@ -957,7 +990,7 @@ Mayr, Ernst. 1997. <span>“The Objects of Selection.”</span> <em>Proceedings 
 Nold, Annett. 1980. <span>“Heterogeneity in Disease-Transmission Modeling.”</span> <em>Mathematical Biosciences</em> 52 (3): 227–40. <a href="https://doi.org/10.1016/0025-5564(80)90069-3">https://doi.org/10.1016/0025-5564(80)90069-3</a>.
 </div>
 <div id="ref-orroth_etal2003" class="csl-entry" role="listitem">
-Orroth, Kate K, Eline L Korenromp, Richard G White, Awene Gavyole, Ron H Gray, Lawrence Muhangi, Nelson K Sewankambo, et al. 2003. <span>“Higher Risk Behaviour and Rates of Sexually Transmitted Diseases in <span>Mwanza</span> Compared to <span>Uganda</span> May Help Explain <span>HIV</span> Prevention Trial Outcomes.”</span> <em>AIDS</em> 17 (18): 2653–60. <a href="https://doi.org/10.1097/00002030-200312050-00013 ">https://doi.org/10.1097/00002030-200312050-00013 </a>.
+Orroth, Kate K, Eline L Korenromp, Richard G White, et al. 2003. <span>“Higher Risk Behaviour and Rates of Sexually Transmitted Diseases in <span>Mwanza</span> Compared to <span>Uganda</span> May Help Explain <span>HIV</span> Prevention Trial Outcomes.”</span> <em>AIDS</em> 17 (18): 2653–60. <a href="https://doi.org/10.1097/00002030-200312050-00013 ">https://doi.org/10.1097/00002030-200312050-00013 </a>.
 </div>
 <div id="ref-salathe_bonhoffer2008" class="csl-entry" role="listitem">
 Salathé, Marcel, and Sebastian Bonhoeffer. 2008. <span>“The Effect of Opinion Clustering on Disease Outbreaks.”</span> <em>Journal of the Royal Society Interface</em> 5 (29): 1505–8. <a href="https://doi.org/10.1098/rsif.2008.0271">https://doi.org/10.1098/rsif.2008.0271</a>.
@@ -965,49 +998,67 @@ Salathé, Marcel, and Sebastian Bonhoeffer. 2008. <span>“The Effect of Opinion
 <div id="ref-smaldino_jones2021" class="csl-entry" role="listitem">
 Smaldino, Paul E., and James Holland Jones. 2021. <span>“Coupled Dynamics of Behaviour and Disease Contagion Among Antagonistic Groups.”</span> <em>Evolutionary Human Sciences</em> 3: e28. <a href="https://doi.org/10.1017/ehs.2021.22">https://doi.org/10.1017/ehs.2021.22</a>.
 </div>
+<div id="ref-vanbaalen_sabelis1995" class="csl-entry" role="listitem">
+<span class="nocase">van Baalen, M., and M. W. Sabelis</span>. 1995. <span>“The Dynamics of Multiple Infection and the Evolution of Virulence.”</span> <em>American Naturalist</em> 146 (6): 881–910. <a href="http://www.jstor.org/stable/2463102">http://www.jstor.org/stable/2463102</a>.
+</div>
 </div>
 </section>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -1015,207 +1066,360 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
       });
     }
-  }
-});
-</script>
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ecology.html" class="pagination-link">
+      <a href="./ecology.html" class="pagination-link" aria-label="Ecology">
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Ecology</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

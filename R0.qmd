@@ -1,4 +1,4 @@
-# That Basic Reproduction Number {#sec-R0}
+# The Basic Reproduction Number {#sec-R0}
 
 ## The Basic Reproduction Number in a Nutshell
 
@@ -12,9 +12,7 @@ time}}{{\rm infection}}\right) $$
 
 More specifically:
 
-$$
- R_0 = \tau \cdot \bar{c} \cdot d
-$$ {#eq-ro}
+$$ R_0 = \tau \cdot \bar{c} \cdot d$${#eq-ro}
 
 where $\tau$ is the transmissibility (i.e., probability of infection given contact between a susceptible and infected individual), $\bar{c}$ is the average rate of contact between susceptible and infected individuals, and $d$ is the duration of infectiousness.
 
@@ -35,13 +33,11 @@ In our closed population of $N$ individuals, say that $S$ are susceptible, $I$ i
 
 The SIR model is then:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
   \frac{ds}{dt} & =  -\beta si \\
   \frac{di}{dt} & =  \beta si - \nu i \\
   \frac{dr}{dt} & =   \nu i
-\end{aligned}
-$$
+\end{aligned}$$
 
 \noindent where $\beta = \tau \bar{c}$ and is known as the effective contact rate, $\nu$ is the removal rate. By assumption all rates are constant. This means that the expected duration of infection is simply the inverse of the removal rate: $d = \nu^{-1}$.
 
@@ -65,24 +61,19 @@ Begin again with a population of $N$ individuals that is divided into $k$ subgro
 
 Assume (and this is a big assumption) that the risk of transmission increases *linearly* with the average number of partners. Let $\lambda = \tau I/N$ be the force of infection, where $\tau$ is the probability of transmission given contact. @anderson_etal1986 use $\beta$ for this probability, but this is confusing given more current usage where $\beta$ is more conventionally the product of transmissibility and the mean rate of contact between susceptibles and infectious individuals. We therefore use $\tau$ in the derivation rather than $\beta$. Thus, the rate of formation of new infections in the $i$th activity class is $i \lambda$. Let $X_i(t)$ and $Y_i(t)$ be the number of susceptible and infectious individuals in activity class $i$ respectively. Our SI model is thus written as:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
 \frac{dX_i}{dt} & =  -i \lambda X_i  \\
 \frac{dY_i}{dt} & =  i \lambda X_i - \nu Y_i
 \end{aligned}
-$$ {#eq-dyi}
+$${#eq-dyi}
 
 At time $t$, assuming proportionate mixing (another big assumption) the overall force of infection is:
 
-$$
-\lambda(t) = \frac{\tau \sum_i i Y_i(t)}{\sum_i i N_i(t)}
-$$ {#eq-force}
+$$\lambda(t) = \frac{\tau \sum_i i Y_i(t)}{\sum_i i N_i(t)}$${#eq-force}
 
 Integrate @eq-dyi ($dX_i/dt$) to get
 
-$$
-X_i(t) = N_i \exp \left[-i \psi(t) \right],
-$$ {#eq-sum}
+$$X_i(t) = N_i \exp \left[-i \psi(t) \right],$${#eq-sum}
 
 where $\psi(t)$ is simply the summed force of infection up to time $t$:
 
@@ -90,22 +81,16 @@ $$ \psi(t) = \int_0^t \lambda(g) dg. $$
 
 Substitute @eq-force into @eq-dyi and sum to produce a differential equation for $\lambda(t)$:
 
-$$
-\frac{d\lambda}{dt} = \lambda \left( \tau \sum_i i^2 e^{-i \psi}
-  p_i/\sum_i i p_i - \nu \right).
-$$ {#eq-deqlambda}
+$$\frac{d\lambda}{dt} = \lambda \left( \tau \sum_i i^2 e^{-i \psi}
+  p_i/\sum_i i p_i - \nu \right).$${#eq-deqlambda}
 
 At the outset of an epidemic, we can assume that approximately everyone in each activity class is susceptible (i.e., $X_i \approx N_i$) and the summed force of infection is zero, $\psi = 0$, since there's been no epidemic yet! This simplifies @eq-deqlambda considerably. Note that, after simplification, the term in the numerator ($\sum_i i^2 p_i$) is the expectation of a squared variable, $E(i^2)$. This is related to variance, which by definition is $\operatorname{Var}(i) = E(i - E(i))^2 = E(i^2) - E(i)^2$. So $E(i^2) = E(i) + \operatorname{Var}(i)$. The denominator ($\sum_i i p_i$) is the expected (or mean) number of contacts $E(i)$. Call the variance in contacts $\sigma^2$ and the mean number of contacts $\mu$. Noting that $\beta=\tau \mu$ and defining the coefficient of variation as $c = \sigma/\mu$, we get the relationship:
 
-$$
-\frac{d\lambda}{dt} = \lambda \left[ \beta (1 + c^2) - \nu \right].
-$$ {#eq-hetlambda}
+$$\frac{d\lambda}{dt} = \lambda \left[ \beta (1 + c^2) - \nu \right].$${#eq-hetlambda}
 
 Solving for $\dot{\lambda}>0$, we recover the value of $R_0$ for heterogeneous contacts.
 
-$$
-R_0 = \mathcal{R}_0^{(M)}(1 + c^2), 
-$$ {#eq-hetro}
+$$R_0 = \mathcal{R}_0^{(M)}(1 + c^2), $${#eq-hetro}
 
 where $\mathcal{R}_0^{(M)}$ is the mean-field solution for $R_0$.
 
@@ -126,8 +111,7 @@ For illustrative purposes, we will limit our discussion to the case where there 
 $$       \mathbf{G} = \left[ \begin{array}{cc}
     a  & b  \\
     c & d
-   \end{array} \right]
-$$
+   \end{array} \right]$$
 
 The eigenvalues of $\mathbf{G}$ are:
 
@@ -140,8 +124,7 @@ Say you have a sexually transmitted disease in a completely heterosexual populat
 $$       \mathbf{G} = \left[ \begin{array}{cc}
     0  & f  \\
     m & 0
-   \end{array} \right]
-$$
+   \end{array} \right]$$
 
 $R_0$ is thus $\sqrt{mf}$. It is worth noting that this is the geometric mean of the expected number of female and male secondary cases.
 
@@ -153,15 +136,11 @@ A review paper by @heffernan_etal2005 provides a nice readable introduction for 
 
 Consider the next generation matrix $\mathbf{G}$. It is comprised of two parts: $F$ and $V^{-1}$, where
 
-$$
-F = \left[ \frac{\partial F_i(x_0)}{\partial x_j} \right]
-$$ {#eq-F}
+$$F = \left[ \frac{\partial F_i(x_0)}{\partial x_j} \right]$${#eq-F}
 
 and
 
-$$
-V = \left[ \frac{\partial V_i(x_0)}{\partial x_j} \right]
-$$ {#eq-V}
+$$V = \left[ \frac{\partial V_i(x_0)}{\partial x_j} \right]$${#eq-V}
 
 These are square matrices of the partial derivatives of new infections ($F_i$) and transfers between different compartments ($V_i$). The rank of these matrices is the number of distinct classes of infections. For example, in a simple two-sex SIR model, the next generation matrix would be $2 \times 2$ since there are two classes of infection (i.e., female and male). $x_0$ is the disease-free equilibrium state. This matrix should be non-negative, irreducible, and primitive.
 
@@ -173,14 +152,12 @@ $R_0$ is then the dominant eigenvalue of the matrix $\mathbf{G}=FV^{-1}$.
 
 The simple SEIR model consists of a set of four differential equations:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
  \dot{S} & =  -\beta S I + \lambda - \mu S \\
  \dot{E} & =  \beta SI - (\mu + k) E \\
  \dot{I} & =  kE - (\gamma + \mu) I \\
  \dot{R} & =  \gamma I - \mu R 
-\end{aligned}
-$$
+\end{aligned}$$
 
 where $\beta$ is the effective contact rate, $\lambda$ is the "birth" rate of susceptibles, $\mu$ is the mortality rate, $k$ is the progression rate from exposed (latent) to infected, $\gamma$ is the removal rate.
 
@@ -188,33 +165,29 @@ Note that in the absence of infection, the equilibrium number of susceptible is 
 
 To calculate the next generation matrix for the SEIR model, we need to enumerate the number of ways that (1) new infections can arise and (2) the number of ways that individuals can move between compartments. There are two disease states but only one way to create new infections. New infections arise through the exposed class. There are only two infection classes $E$ and $I$. Our $F$ matrix collects the partial derivatives of the rate of new infections with respect to changes in the infection classes:
 
-$$
-F = \left(
+$$F = \left(
           \begin{array}{cc}
             0 & \frac{\beta  \lambda }{\mu } \\
             0 & 0 \\
           \end{array}
         \right),
-        $$ {#eq-seir-F}
+        $${#eq-seir-F}
 
 where we substitute the disease-free equilibrium for $S$.
 
 The $V$ matrix collects the partial derivatives of the various ways to move between the two infection states:
 
-$$
-V = \left(
+$$V = \left(
           \begin{array}{cc}
             k+\mu  & 0 \\
             -k & \gamma +\mu  \\
           \end{array}
         \right)
-$$ {#eq-seir-V}
+        $${#eq-seir-V}
 
 $R_0$ is the leading eigenvalue of the matrix $FV^{-1}$. This is reasonably straightforward to calculate since $FV^{-1}$ is simply a $2\times2$ matrix.
 
-$$
- R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )} 
-$$ {#eq-seir-ro}
+$$ R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )} $${#eq-seir-ro}
 
 It is interesting to note that $R_0$ is also the product of the rate of production of (1) new exposures and (2) new infections, as it should be.
 
@@ -222,15 +195,13 @@ It is interesting to note that $R_0$ is also the product of the rate of producti
 
 In demography, $R_0$ represents the ratio of total population size from the start to the end of a generation, which is, roughly, the mean age of childbearing. $R_0 = e^{rT}$, where $r$ is the instantaneous rate of increase of the population. So what is a generation in an epidemic model? Generations in epidemic models are the waves of secondary infection that flow from each previous infection. So, the first generation of an epidemic is all the secondary infections that result from infectious contact with the index case, who is of generation zero. If $\mathcal{R}_i$ denotes the reproduction number of the $i$th generation, then $R_0$ is simply the number of infections generated by the index case, i.e., generation zero. Now, these numbers are typically small and are therefore susceptible to random sampling error. Consequently, we talk about expected (i.e., averaged over many epidemics) numbers of secondary cases produced by generation zero. See @diekmannheesterbeeck2000 or @heesterbeek2002 for a more complete discussion of this topic.
 
-Figure\~\ref{fig:gen} shows a schematic representation of an epidemic. The zeroth generation of the epidemic is the index case -- patient zero -- indicated in red. The number of secondary infections generated by the case in generation zero is $R_0=3$. In the first generation (blue), $\mathcal{R}_1=6/3=2$. The second generation (cyan) has $\mathcal{R}_1=12/6=2$.
+@fig-gens shows a schematic representation of an epidemic. The zeroth generation of the epidemic is the index case---patient zero---indicated in red. The number of secondary infections generated by the case in generation zero is $R_0=3$. In the first generation (blue), $\mathcal{R}_1=6/3=2$. The second generation (cyan) has $\mathcal{R}_1=12/6=2$.
 
-**include generations figure**
+![Four generations of an epidemic.](figs/generations.png){#fig-gens}
 
 The generation time of an epidemic is typically called the *serial interval* which we will denote $V$. @anderson_may1991 show how we can use the serial interval to estimate $R_0$ at the outset of an outbreak. Assuming constant mortality, they show that
 
-$$
-  R_0 = 1 + r V,
-$$ {#eq-ro-from-r}
+$$  R_0 = 1 + r V,$${#eq-ro-from-r}
 
 where $r$ is the exponential rate of increase of infections. Assuming the outbreak started with a small number of infections (e.g., 1), we estimate this simply as $r=\log(I(t))/t$.
 
@@ -240,17 +211,13 @@ For example, on 26 January 2020, the WHO situation report indicated that there w
 
 $R_0$ also gives us information about the doubling time of an epidemic. This is a pretty intuitive statistic that can effectively communicate the potential severity of an outbreak. Denote the doubling time of the epidemic $T_D$, then
 
-$$
-  T_D = \frac{\log(2) V}{R_0 -1}.
-$$ {#eq-doubling}
+$$  T_D = \frac{\log(2) V}{R_0 -1}.$${#eq-doubling}
 
 An outbreak with $R_0=2.5$ and a serial interval of $V=5$ will double every 2.3 days.
 
 We can also calculate the doubling time of an ongoing outbreak from case counts on two different days.
 
-$$
-  T_D = \frac{t_1 - t_0}{\log_2 \left(\frac{N_1}{N_0} \right)}
-$$ {#eq-double-2pts}
+$$  T_D = \frac{t_1 - t_0}{\log_2 \left(\frac{N_1}{N_0} \right)}$${#eq-double-2pts}
 
 CDC reports that there were 10 confirmed COVID-19 cases in the USA on 21 February 2020 and 41 nine days later on 1 March. This suggests a doubling time of 4.2 days for *confirmed cases*. Given the almost complete lack of testing at this point in the epidemic, this is probably quite a bit greater than the actual doubling time of actual infections.
 
@@ -268,14 +235,13 @@ $$di =  (-1 + \frac{\nu}{\beta s})ds $$
 
 We then integrate and do a little algebra, yielding
 
-$$
-  \log(s_{\infty}) =  R_0 (s_{\infty}-1)
-$$ {#eq-final}
+$$  \log(s_{\infty}) =  R_0 (s_{\infty}-1)$${#eq-final}
 
 This is an implicit equation for $s_{\infty}$, the number of susceptibles at the end of the epidemic. When $R_0 > 1$, this equation has exactly two roots, only one of which lies in the interval $(0,1)$. %Subtract $\log(s_{\infty})$ from both sides and we get $R_0 (s\_{\infty}-1)-\log(s\_{\infty})=0$. Call the whole left-hand side $y$. $y$ will have different values for different values of $\log(s_{\infty})$. Only a couple of those will satisfy @eq-final. $\log(s_{\infty})=0$ (i.e., everyone remains susceptible since there is no epidemic) will always satisfy @eq-final (plug it in and see!). When $R_0>1$, the other solution is the actual value of the final size. This is the one we really care about. If $R_0 \leq 1$, the only value that satisfies @eq-final is $s_{\infty}=1$. In words, at the end of the epidemic, everyone will still be susceptible (i.e., no one gets infected).
 
 ```{r}
 #| fig-asp: 1
+#| label: fig-final
 ## geometry of final-size equation
 curve(log(x), c(0,1), type="l", lwd=2, xaxs="i", xlab="Fraction Susceptible", ylab="y")
 curve(2*(x-1), c(0,1), add=TRUE)
@@ -284,10 +250,11 @@ curve(3*(x-1), c(0,1), add=TRUE)
 curve(0.9*(x-1), c(0,1), col="red",add=TRUE)
 ```
 
-This shows a geometric interpretation of @eq-final for various values of $R_0 > 1$ in black. The point where the line $R_0 (s_{\infty}-1)$ is tangent to the curve $\log(s_{\infty})$ indicates the value of $s_{\infty}$ for a given $R_0$. As $R_0$ gets larger, the final size of the epidemic gets larger as well (i.e., the fraction susceptible at the end of the epidemic gets smaller). Figure\~\ref{fig:final-size} also shows the solution when $R_0 = 1$ in red. The only tangent to the curve $y=\log(s_{\infty})$ occurs at $s_{\infty}=1$, meaning that essentially none of the total population becomes infected when an infection is sub-critical.
+This shows a geometric interpretation of @eq-final for various values of $R_0 > 1$ in black. The point where the line $R_0 (s_{\infty}-1)$ is tangent to the curve $\log(s_{\infty})$ indicates the value of $s_{\infty}$ for a given $R_0$. As $R_0$ gets larger, the final size of the epidemic gets larger as well (i.e., the fraction susceptible at the end of the epidemic gets smaller). @fig-final also shows the solution when $R_0 = 1$ in red. The only tangent to the curve $y=\log(s_{\infty})$ occurs at $s_{\infty}=1$, meaning that essentially none of the total population becomes infected when an infection is sub-critical.
 
 ```{r}
 #| fig-asp: 1
+#| label: fig-finalunc
 ## final-size curve
 
 fs <- function(ro,s) ro*(s-1) - log(s)
@@ -322,7 +289,7 @@ polygon(rrange1,fsrange1,col=rgb(255,0,0, 60, maxColorValue = 255),
 lines(c(1,RR), c(0,ff), lwd=3, col="blue4")
 ```
 
-This figure plots the final size ($1-s_{\infty}$) for values of $R_0$ ranging from 1-6. We can see that the curve is highly concave and approaches value of the whole population very slowly. We note the final size for $R_0=2.5$, which is approximately the consensus estimate for the ongoing COVID-19 epidemic. The fraction remaining susceptible at the end of the epidemic is $s_{\infty}=0.107$, so 89.3% of the population will ultimately become infected (assuming nothing changes).
+@fig-finalunc plots the final size ($1-s_{\infty}$) for values of $R_0$ ranging from 1-6. We can see that the curve is highly concave and approaches value of the whole population very slowly. We note the final size for $R_0=2.5$, which is approximately the consensus estimate for the ongoing COVID-19 epidemic. The fraction remaining susceptible at the end of the epidemic is $s_{\infty}=0.107$, so 89.3% of the population will ultimately become infected (assuming nothing changes).
 
 The conclusion we can draw from all this analysis is that, in general, a fraction of the population will escape infection. That is, $s_{\infty} > 0$. This is one of the fundamental insights of mathematical theory of epidemics. It is very important to remember that final-size calculation assume that nothing changes in the epidemic. Public-health interventions (e.g., social distancing, quarantine, vaccination) and medical interventions (e.g., curing sick people) will reduce the effective reproduction number (i.e., the expected number of secondary cases produced by a case at some point later in the epidemic). This is indeed the goal of epidemic control!
 
@@ -336,9 +303,7 @@ $$ R \leq R_0(1-p). $$
 
 Simply solve for $R<1$, letting $p_c$ denote the critical vaccination fraction:
 
-$$
-  p_c = 1 - \frac{1}{R_0}.
-$$ {#eq-pc}
+$$  p_c = 1 - \frac{1}{R_0}.$${#eq-pc}
 
 #### The Effect of Heterogeneity
 
@@ -348,9 +313,7 @@ $$ {#eq-pc}
 
 ![A heterogeneous network with a high-degree vertex highlighted. Because of its many contacts, this vertex is at risk of infection early in the epidemic.](figs/active_vertex.png)
 
-
 ![The graph becomes substantially more sparse with the five most highly-active vertices removed from it. If we continued to remove vertices with high degree, the previously connected graph would become disconnected and an epidemic would no longer be possible.](figs/most_active_removed.png)
-
 
 Network frailty may have been the culprit underlying the famous failure of three high-profile randomized, controlled trials of STD treatment and behavior change interventions to reduce HIV incidence in the East African cities of Mwanza, Tanzania and Rakai and Masaka, Uganda [@orroth_etal2003].
 
@@ -360,11 +323,10 @@ It is also possible that the effective herd-immunity threshold will be higher th
 
 For a given small change in the environment, broadly construed, the change in $R_0$ will be:
 
-$$
-\frac{d R_0}{d \epsilon} = \frac{d \tau}{d \epsilon}\, \frac{d
+$$\frac{d R_0}{d \epsilon} = \frac{d \tau}{d \epsilon}\, \frac{d
   R_0}{d\tau} + \frac{d\bar{c}}{d\epsilon}\, \frac{dR_0}{d\bar{c}} +
 \frac{d\delta}{d\epsilon}\, \frac{dR_0}{d\delta}
-$$ {#eq-deltar0}
+$${#eq-deltar0}
 
 For example, one could imagine an increase in temperature having two distinct effects. On the one hand, increased temperature could increase the transmissibility of a pathogen by increasing its replication rate. However, it could also\
 decrease the contact rate between hosts because of behavioral modulation to avoid heat stress on the part of the hosts. Whether $R_0$ increases or decreases depends on the particulars of the system. The devil is always in the details in complex systems. If we are to make a sound case for connections between environmental change and EID, we need to be measured and rigorous.
@@ -397,8 +359,7 @@ $$ \mathbf{G} = \left[ \begin{array}{ccc}
             0 & g_{B \leftarrow D} & g_{B \leftarrow H} \\
             g_{D \leftarrow B} & 0 & 0 \\
             g_{H \leftarrow B}  & 0 & 0
-            \end{array} \right],
-$$
+            \end{array} \right],$$
 
 where (e.g.) $g_{B \leftarrow D}$ is the dog-infecting-bug reproduction number.
 
@@ -418,8 +379,7 @@ We can see that $R_0 = 5.08$ and that, by far, the element of $\mathbf{G}$ with 
 Sensitivities tell us about the absolute change in $R_0$ given a small change in one of the entries in $\mathbf{G}$. Sometimes we want to know about the proportional sensitivities though. Use a trick invented by Carl Jacobi in the mid-nineteenth century. Define a proportional sensitivity (or *elasticity*) as
 
 $$ e_{ij} = \frac{g_{ij}}{R_0} \cdot \frac{\partial R_0}{\partial
-  g_{ij}} = \frac{\partial \log(R_0)}{\partial \log(g_{ij})}.
-$$
+  g_{ij}} = \frac{\partial \log(R_0)}{\partial \log(g_{ij})}.$$
 
 Elasticities answer the following question: if $g_{ij}$ increases by 1%, by what percentage will $R_0$ increase? Elasticities also have the convenient property of summing to one across all elements of the next generation matrix. They thus represent the fraction of the total potential reduction embodied in each cell of the next generation matrix (assuming everything else stays the same).
 
@@ -443,13 +403,11 @@ calc.elas <- function(G){
 
 So our elasticity matrix looks like this:
 
-$$
-\mathbf{E} = \left[ \begin{array}{ccc}
+$$\mathbf{E} = \left[ \begin{array}{ccc}
 0.00 & 0.47 & 0.03 \\
 0.47 & 0.00 & 0.00 \\
 0.03 & 0.00 & 0.00 
- \end{array} \right].
-$$
+ \end{array} \right].$$
 
 Transmission from bugs to dogs and dogs to bugs accounts for more than 94% of the elasticity. Clearly, we need to stop the canine transmission cycle! The elasticities of all pairs (e.g., bugs to dogs/dogs to bugs) are identical because of a feature of elasticities identified by @vongroenendael_etal1994. In brief, the sum of elasticities of the incoming transitions to a vertex in the transmission graph will equal the sum of the elasticities of the outgoing transitions. Because humans and dogs don't infect each other, this means that the elasticities involving bugs and the two mammal species (i.e., humans, dogs) will be equal to each other. More later.
 
@@ -467,8 +425,7 @@ $$ \mathbf{G} = \left[ \begin{array}{ccccc}
     0.40 & 0.30 & 0.50 & 0.40 & 0.30 \\
     0.20 & 0.10 & 0.30 & 0.20 & 0.10 \\
     0.10 & 0.10 & 0.10 & 0.10 & 0.10 
-               \end{array} \right] 
-$$
+               \end{array} \right] $$
 
 where the classes are: (1) pre-school age, (2) school age, (3) young adult, (4) mid-adult, (5) old adult.
 
@@ -507,32 +464,28 @@ We see that, overwhelmingly, the best epidemic-reduction bang for our public-hea
 
 A generalization that emerges from applying this sort of analysis to a range of systems is that the most efficient method for epidemic control is to reduce the number of infections in the the subpopulation that has the most infections. This makes sense: you want to reduce the largest source of potential infections in the population. Examples include:
 
--   Reducing transmission among the high-risk segment (e.g., sex workers, injection-drug users), often known as "the core," for sexually-transmitted infections like gonorrhea [@hethcote_yorke1984].
--   Reducing transmission among school-age children for influenza
--   Reducing transmission among domestic fowl in bird-flu
--   Reducing transmission from triatomine bugs to peri-domestic dogs in Chagas disease
--   Reducing transmission within the low-risk/high-activity subpopulation in a [simple model of COVID-19 dynamics](@sec-struct)
+- Reducing transmission among the high-risk segment (e.g., sex workers, injection-drug users), often known as "the core," for sexually-transmitted infections like gonorrhea [@hethcote_yorke1984].
+- Reducing transmission among school-age children for influenza
+- Reducing transmission among domestic fowl in bird-flu
+- Reducing transmission from triatomine bugs to peri-domestic dogs in Chagas disease
+- Reducing transmission within the low-risk/high-activity subpopulation in a [simple model of COVID-19 dynamics](@sec-struct)
 
 ## Optimal Virulence: Pathogen Life History Evolution {#sec-virulence}
 
 But enough about you, let's talk about me for a while. It's instructive to think about epidemics from the pathogen's perspective. Pathogens bear biological information in their nucleic acids. This information varies from one copy of a pathogen to another, and the ability of a pathogen to persist and multiply can be a function of this variability. We therefore have fulfilled the necessary and sufficient conditions for natural selection. Pathogens evolve.
 
-We will consider a model in which transmissibility and disease-induced mortality trade-off introduced by @vanbaalensabelis1995. This interaction is mediated by virulence, which we will take to be proportional to parasite burden or parasitemia. More copies of a virus (say) means that *conditional on contact* with an infected individual, the pathogen is more likely to be transmitted. However, more viral copies means the host is sicker -- and potentially dead. Dead hosts do not transmit and very sick hosts are less likely to be up and interacting with susceptibles.
+We will consider a model in which transmissibility and disease-induced mortality trade-off introduced by @vanbaalen_sabelis1995. This interaction is mediated by virulence, which we will take to be proportional to parasite burden or parasitemia. More copies of a virus (say) means that *conditional on contact* with an infected individual, the pathogen is more likely to be transmitted. However, more viral copies means the host is sicker---and potentially dead. Dead hosts do not transmit and very sick hosts are less likely to be up and interacting with susceptibles.
 
 Consider a directly-transmitted infection from which there is no recovery (e.g., Herpes Simplex Virus). The population experiences a baseline mortality rate, $\mu$, and a disease-induced mortality $\delta$.
 
-$$
-\begin{aligned}
+$$\begin{aligned}
   ds/dt & =  -\beta si - \mu s \\
   di/dt & =  \beta si - (\mu + \delta) i,
-\end{aligned}
-$$
+\end{aligned}$$
 
 It is straightforward to show that the basic reproduction number is given by:
 
-$$
- R_0 = \frac{\beta}{\mu+\delta} > 1, 
-$$ {#eq-ro1}
+$$ R_0 = \frac{\beta}{\mu+\delta} > 1, $${#eq-ro1}
 
 The parameter $\mu$ is independent of the epidemic, but the parameters, $\beta$ and $\delta$ can conceivably be functions of virulence, which we denote by $x$.
 
@@ -545,9 +498,7 @@ $$ \frac{dR_0}{dx} = \frac{\beta'(\mu + \delta) - \delta' \beta}{(\mu +
 
 Rearranging and evaluating $\beta(x)$ and $\delta(x)$ at the ESS values of $x$ (denoted $x^*$), we have:
 
-$$
- \frac{d\beta(x)}{d\delta(x)} = \frac{\beta(x^*)}{\mu+\delta(x^*)}
-$$ {#eq-mvt}
+$$ \frac{d\beta(x)}{d\delta(x)} = \frac{\beta(x^*)}{\mu+\delta(x^*)}$${#eq-mvt}
 
 This result has a nice geometric interpretation. The ESS virulence occurs where a line rooted at the origin is tangent to the curve that relates $\beta$ to $\delta$. This result is known as the Marginal Value Theorem and has applications in economics and ecology as well as epidemiology. The MVT model for optimal virulence is plotted in @eq-mvt. In the lower curve, the tangent line hits further out on the horizontal axis and mortality is higher.
 
@@ -633,7 +584,6 @@ lines(stateMatrix[,"time"], stateMatrix[,"R"], col="green", lwd=2)
 legend("right", c("S","I","R"), col=c("blue","red","green"), lwd=2)
 ```
 
-
 An epidemic means infections are increasing. We can look at just the take-off, where $dI/dt > 0$
 
 ```{r}
@@ -653,15 +603,11 @@ Let's start with a few definitions. Let $I$ indicate the presence of infection a
 
 Bayes' Theorem tells us that the probability of infection, given a positive test is proportional to the sensitivity of the test times the prevalence. If we want to turn this proportionality into a true probability, we need to normalize by the probability of a positive test. In the case of a diagnostic test like this, there are two mutually-exclusive ways that you can get a positive test: it can be a true positive or a false positive. We put this all together and get the following:
 
-$$
-P(I|P) = \frac{P(P|I)P(I)}{P(P)} = \frac{P(P|I)P(I)}{P(P|I)P(D) + P(P|\sim I)P(\sim I)}
-$$
+$$P(I|P) = \frac{P(P|I)P(I)}{P(P)} = \frac{P(P|I)P(I)}{P(P|I)P(D) + P(P|\sim I)P(\sim I)}$$
 
 Using the epidemiological terms:
 
-$$
-P(\textrm{Infection}|\textrm{Positive Test}) = \frac{\textrm{Sensitivity} \cdot \textrm{Prevalence}}{\textrm{Sensitivity} \cdot \textrm{Prevalence}\; +\; (1 - \textrm{Specificity}) \cdot (1 - \textrm{Prevalence})}
-$$
+$$P(\textrm{Infection}|\textrm{Positive Test}) = \frac{\textrm{Sensitivity} \cdot \textrm{Prevalence}}{\textrm{Sensitivity} \cdot \textrm{Prevalence}\; +\; (1 - \textrm{Specificity}) \cdot (1 - \textrm{Prevalence})}$$
 
 A 2020 study by Prince-Guerra and colleagues in [MMWR](https://www.cdc.gov/mmwr/volumes/70/wr/mm7003e3.htm) found that the BinaxNow rapid test had a sensitivity of 64.2% and a specificity of nearly 100%. Since it's not exactly perfectly specific (and certainty has a disproportionate impact on Bayesian calculations), call the specificity 99%. We can write a simple function to calculate the positive predictive value. Suppose that we have a local positivity rate (i.e., prevalence) of 5%.
 
@@ -693,4 +639,3 @@ lines(spec, ppv(sens=sens,spec=spec,prev=0.04), lwd=2, col="orange")
 title("Effects of Specificity on PPV in High- and Low-Prevalence Settings")
 legend("topleft",c("CA","FL"), lwd=2, col=c("black","orange"))
 ```
-
