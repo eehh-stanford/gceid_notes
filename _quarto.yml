@@ -5,7 +5,7 @@ project:
 book:
   title: "Global Change and Emerging Infectious Disease"
   author: "James Holland Jones"
-  date: "03/31/2024"
+  date: "06/12/2026"
   chapters:
     - index.qmd
     - R0.qmd
