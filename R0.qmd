@@ -12,7 +12,7 @@ time}}{{\rm infection}}\right) $$
 
 More specifically:
 
-$$ R_0 = \tau \cdot \bar{c} \cdot d$${#eq-ro}
+$$ R_0 = \tau \cdot \bar{c} \cdot d$$ {#eq-ro}
 
 where $\tau$ is the transmissibility (i.e., probability of infection given contact between a susceptible and infected individual), $\bar{c}$ is the average rate of contact between susceptible and infected individuals, and $d$ is the duration of infectiousness.
 
@@ -64,16 +64,16 @@ Assume (and this is a big assumption) that the risk of transmission increases *l
 $$\begin{aligned}
 \frac{dX_i}{dt} & =  -i \lambda X_i  \\
 \frac{dY_i}{dt} & =  i \lambda X_i - \nu Y_i
-\end{aligned}
-$${#eq-dyi}
+\end{aligned}$$
+ {#eq-dyi}
 
 At time $t$, assuming proportionate mixing (another big assumption) the overall force of infection is:
 
-$$\lambda(t) = \frac{\tau \sum_i i Y_i(t)}{\sum_i i N_i(t)}$${#eq-force}
+$$\lambda(t) = \frac{\tau \sum_i i Y_i(t)}{\sum_i i N_i(t)}$$ {#eq-force}
 
 Integrate @eq-dyi ($dX_i/dt$) to get
 
-$$X_i(t) = N_i \exp \left[-i \psi(t) \right],$${#eq-sum}
+$$X_i(t) = N_i \exp \left[-i \psi(t) \right],$$ {#eq-sum}
 
 where $\psi(t)$ is simply the summed force of infection up to time $t$:
 
@@ -82,15 +82,15 @@ $$ \psi(t) = \int_0^t \lambda(g) dg. $$
 Substitute @eq-force into @eq-dyi and sum to produce a differential equation for $\lambda(t)$:
 
 $$\frac{d\lambda}{dt} = \lambda \left( \tau \sum_i i^2 e^{-i \psi}
-  p_i/\sum_i i p_i - \nu \right).$${#eq-deqlambda}
+  p_i/\sum_i i p_i - \nu \right).$$ {#eq-deqlambda}
 
 At the outset of an epidemic, we can assume that approximately everyone in each activity class is susceptible (i.e., $X_i \approx N_i$) and the summed force of infection is zero, $\psi = 0$, since there's been no epidemic yet! This simplifies @eq-deqlambda considerably. Note that, after simplification, the term in the numerator ($\sum_i i^2 p_i$) is the expectation of a squared variable, $E(i^2)$. This is related to variance, which by definition is $\operatorname{Var}(i) = E(i - E(i))^2 = E(i^2) - E(i)^2$. So $E(i^2) = E(i) + \operatorname{Var}(i)$. The denominator ($\sum_i i p_i$) is the expected (or mean) number of contacts $E(i)$. Call the variance in contacts $\sigma^2$ and the mean number of contacts $\mu$. Noting that $\beta=\tau \mu$ and defining the coefficient of variation as $c = \sigma/\mu$, we get the relationship:
 
-$$\frac{d\lambda}{dt} = \lambda \left[ \beta (1 + c^2) - \nu \right].$${#eq-hetlambda}
+$$\frac{d\lambda}{dt} = \lambda \left[ \beta (1 + c^2) - \nu \right].$$ {#eq-hetlambda}
 
 Solving for $\dot{\lambda}>0$, we recover the value of $R_0$ for heterogeneous contacts.
 
-$$R_0 = \mathcal{R}_0^{(M)}(1 + c^2), $${#eq-hetro}
+$$R_0 = \mathcal{R}_0^{(M)}(1 + c^2), $$ {#eq-hetro}
 
 where $\mathcal{R}_0^{(M)}$ is the mean-field solution for $R_0$.
 
@@ -136,11 +136,11 @@ A review paper by @heffernan_etal2005 provides a nice readable introduction for 
 
 Consider the next generation matrix $\mathbf{G}$. It is comprised of two parts: $F$ and $V^{-1}$, where
 
-$$F = \left[ \frac{\partial F_i(x_0)}{\partial x_j} \right]$${#eq-F}
+$$F = \left[ \frac{\partial F_i(x_0)}{\partial x_j} \right]$$ {#eq-F}
 
 and
 
-$$V = \left[ \frac{\partial V_i(x_0)}{\partial x_j} \right]$${#eq-V}
+$$V = \left[ \frac{\partial V_i(x_0)}{\partial x_j} \right]$$ {#eq-V}
 
 These are square matrices of the partial derivatives of new infections ($F_i$) and transfers between different compartments ($V_i$). The rank of these matrices is the number of distinct classes of infections. For example, in a simple two-sex SIR model, the next generation matrix would be $2 \times 2$ since there are two classes of infection (i.e., female and male). $x_0$ is the disease-free equilibrium state. This matrix should be non-negative, irreducible, and primitive.
 
@@ -171,7 +171,7 @@ $$F = \left(
             0 & 0 \\
           \end{array}
         \right),
-        $${#eq-seir-F}
+        $$ {#eq-seir-F}
 
 where we substitute the disease-free equilibrium for $S$.
 
@@ -183,11 +183,11 @@ $$V = \left(
             -k & \gamma +\mu  \\
           \end{array}
         \right)
-        $${#eq-seir-V}
+        $$ {#eq-seir-V}
 
 $R_0$ is the leading eigenvalue of the matrix $FV^{-1}$. This is reasonably straightforward to calculate since $FV^{-1}$ is simply a $2\times2$ matrix.
 
-$$ R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )} $${#eq-seir-ro}
+$$ R_0 = \frac{k \beta  \lambda }{\mu  (k +\mu ) (\gamma +\mu )} $$ {#eq-seir-ro}
 
 It is interesting to note that $R_0$ is also the product of the rate of production of (1) new exposures and (2) new infections, as it should be.
 
@@ -201,7 +201,7 @@ In demography, $R_0$ represents the ratio of total population size from the star
 
 The generation time of an epidemic is typically called the *serial interval* which we will denote $V$. @anderson_may1991 show how we can use the serial interval to estimate $R_0$ at the outset of an outbreak. Assuming constant mortality, they show that
 
-$$  R_0 = 1 + r V,$${#eq-ro-from-r}
+$$  R_0 = 1 + r V,$$ {#eq-ro-from-r}
 
 where $r$ is the exponential rate of increase of infections. Assuming the outbreak started with a small number of infections (e.g., 1), we estimate this simply as $r=\log(I(t))/t$.
 
@@ -211,13 +211,13 @@ For example, on 26 January 2020, the WHO situation report indicated that there w
 
 $R_0$ also gives us information about the doubling time of an epidemic. This is a pretty intuitive statistic that can effectively communicate the potential severity of an outbreak. Denote the doubling time of the epidemic $T_D$, then
 
-$$  T_D = \frac{\log(2) V}{R_0 -1}.$${#eq-doubling}
+$$  T_D = \frac{\log(2) V}{R_0 -1}.$$ {#eq-doubling}
 
 An outbreak with $R_0=2.5$ and a serial interval of $V=5$ will double every 2.3 days.
 
 We can also calculate the doubling time of an ongoing outbreak from case counts on two different days.
 
-$$  T_D = \frac{t_1 - t_0}{\log_2 \left(\frac{N_1}{N_0} \right)}$${#eq-double-2pts}
+$$  T_D = \frac{t_1 - t_0}{\log_2 \left(\frac{N_1}{N_0} \right)}$$ {#eq-double-2pts}
 
 CDC reports that there were 10 confirmed COVID-19 cases in the USA on 21 February 2020 and 41 nine days later on 1 March. This suggests a doubling time of 4.2 days for *confirmed cases*. Given the almost complete lack of testing at this point in the epidemic, this is probably quite a bit greater than the actual doubling time of actual infections.
 
@@ -235,7 +235,7 @@ $$di =  (-1 + \frac{\nu}{\beta s})ds $$
 
 We then integrate and do a little algebra, yielding
 
-$$  \log(s_{\infty}) =  R_0 (s_{\infty}-1)$${#eq-final}
+$$  \log(s_{\infty}) =  R_0 (s_{\infty}-1)$$ {#eq-final}
 
 This is an implicit equation for $s_{\infty}$, the number of susceptibles at the end of the epidemic. When $R_0 > 1$, this equation has exactly two roots, only one of which lies in the interval $(0,1)$. %Subtract $\log(s_{\infty})$ from both sides and we get $R_0 (s\_{\infty}-1)-\log(s\_{\infty})=0$. Call the whole left-hand side $y$. $y$ will have different values for different values of $\log(s_{\infty})$. Only a couple of those will satisfy @eq-final. $\log(s_{\infty})=0$ (i.e., everyone remains susceptible since there is no epidemic) will always satisfy @eq-final (plug it in and see!). When $R_0>1$, the other solution is the actual value of the final size. This is the one we really care about. If $R_0 \leq 1$, the only value that satisfies @eq-final is $s_{\infty}=1$. In words, at the end of the epidemic, everyone will still be susceptible (i.e., no one gets infected).
 
@@ -303,7 +303,7 @@ $$ R \leq R_0(1-p). $$
 
 Simply solve for $R<1$, letting $p_c$ denote the critical vaccination fraction:
 
-$$  p_c = 1 - \frac{1}{R_0}.$${#eq-pc}
+$$  p_c = 1 - \frac{1}{R_0}.$$ {#eq-pc}
 
 #### The Effect of Heterogeneity
 
@@ -325,8 +325,8 @@ For a given small change in the environment, broadly construed, the change in $R
 
 $$\frac{d R_0}{d \epsilon} = \frac{d \tau}{d \epsilon}\, \frac{d
   R_0}{d\tau} + \frac{d\bar{c}}{d\epsilon}\, \frac{dR_0}{d\bar{c}} +
-\frac{d\delta}{d\epsilon}\, \frac{dR_0}{d\delta}
-$${#eq-deltar0}
+\frac{d\delta}{d\epsilon}\, \frac{dR_0}{d\delta}$$
+ {#eq-deltar0}
 
 For example, one could imagine an increase in temperature having two distinct effects. On the one hand, increased temperature could increase the transmissibility of a pathogen by increasing its replication rate. However, it could also\
 decrease the contact rate between hosts because of behavioral modulation to avoid heat stress on the part of the hosts. Whether $R_0$ increases or decreases depends on the particulars of the system. The devil is always in the details in complex systems. If we are to make a sound case for connections between environmental change and EID, we need to be measured and rigorous.
@@ -485,7 +485,7 @@ $$\begin{aligned}
 
 It is straightforward to show that the basic reproduction number is given by:
 
-$$ R_0 = \frac{\beta}{\mu+\delta} > 1, $${#eq-ro1}
+$$ R_0 = \frac{\beta}{\mu+\delta} > 1, $$ {#eq-ro1}
 
 The parameter $\mu$ is independent of the epidemic, but the parameters, $\beta$ and $\delta$ can conceivably be functions of virulence, which we denote by $x$.
 
@@ -498,7 +498,7 @@ $$ \frac{dR_0}{dx} = \frac{\beta'(\mu + \delta) - \delta' \beta}{(\mu +
 
 Rearranging and evaluating $\beta(x)$ and $\delta(x)$ at the ESS values of $x$ (denoted $x^*$), we have:
 
-$$ \frac{d\beta(x)}{d\delta(x)} = \frac{\beta(x^*)}{\mu+\delta(x^*)}$${#eq-mvt}
+$$ \frac{d\beta(x)}{d\delta(x)} = \frac{\beta(x^*)}{\mu+\delta(x^*)}$$ {#eq-mvt}
 
 This result has a nice geometric interpretation. The ESS virulence occurs where a line rooted at the origin is tangent to the curve that relates $\beta$ to $\delta$. This result is known as the Marginal Value Theorem and has applications in economics and ecology as well as epidemiology. The MVT model for optimal virulence is plotted in @eq-mvt. In the lower curve, the tangent line hits further out on the horizontal axis and mortality is higher.
 

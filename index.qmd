@@ -10,4 +10,4 @@ The course is organized thematically around five broad modes of global change th
 
 The course introduces a series of case studies, where we focus on the role that environmental changes (such as deforestation and land-use conversion, urbanization, human migration, international commerce, and climate change) play in contemporary disease transmission. Case studies include: Ebola, Virus Disease, Lyme Disease, Malaria, Measles, Plague, Dengue, SARS CoV-1, and SARS CoV-2 (COVID-19).
 
-We'll see if the case studies make their way into these notes.
+We'll see if the case studies make their way into these notes. I have removed several chapters that essentially had no content. Maybe I'll add them back with some actual content next time I teach this class. Topics include: mobility, land-use change, economic inequality, human behavior and epidemics.

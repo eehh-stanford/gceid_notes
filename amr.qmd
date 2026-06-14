@@ -6,20 +6,17 @@ The ecology and behavior of hosts helps establish the selective environment for 
 
 Why do we have a crisis? A very real contributor to the problem relates to the economic incentives for pharmaceutical companies [@kremer_snyder2015].
 
-Consider a population of 100 people, 90 of whom have a low disease risk, say 10%. The remaining ten have 100% chance of getting infected. The infection generates harm equal to the loss of $100 and both treatment pharmaceuticals or vaccines are costless to produce, administer, and are 100% effective. Assume people are risk neutral and economically rational (big assumptions, I know).
+Consider a population of 100 people, 90 of whom have a low disease risk, say 10%. The remaining ten have 100% chance of getting infected. The infection generates harm equal to the loss of \$100 and both treatment pharmaceuticals or vaccines are costless to produce, administer, and are 100% effective. Assume people are risk neutral and economically rational (big assumptions, I know).
 
 ![](figs/vacc_v_treat.png){fig-align="center"}
 
 This means 19 people will get infected on average.
 
-Low-risk population loses an expected $10 (10% chance x $100 loss).
-High-risk population loses $100.
+Low-risk population loses an expected \$10 (10% chance x \$100 loss). High-risk population loses \$100.
 
-Economic theory tells us that the low-risk people should be willing to pay $10 for a vaccine. Note also that the Pharma company doesn’t know a priori who is high-vs.-low risk. This means $10 x 100 = $1000 revenue.
+Economic theory tells us that the low-risk people should be willing to pay \$10 for a vaccine. Note also that the Pharma company doesn’t know a priori who is high-vs.-low risk. This means \$10 x 100 = \$1000 revenue.
 
-However, economic theory also tells us that anyone infected (regardless of their subpopulation) should be willing to pay $100 to treat their disease. This means $100 x 19 = $1900.
-
-
+However, economic theory also tells us that anyone infected (regardless of their subpopulation) should be willing to pay \$100 to treat their disease. This means \$100 x 19 = \$1900.
 
 ![Do the math, business geniuses.](figs/calculuating.jpg){fig-align="center"}
 
@@ -58,7 +55,6 @@ text(0.17,10,"r=0.1")
 text(0.53,10,"r=0.5")
 text(0.98,10, "r=1.0")
 ```
-
 
 ```{r}
 #| fig-asp: 1
@@ -115,4 +111,3 @@ text(x[3],y[3],expression(m == 0.01))
 ```
 
 ## Evolution of Resistance
-

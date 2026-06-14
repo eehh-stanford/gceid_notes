@@ -202,7 +202,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./R0.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">That Basic Reproduction Number</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Basic Reproduction Number</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -225,38 +225,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./land_use.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Land Use</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./climate_change.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Climate Change</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./mobility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Mobility</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./inequality.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inequality</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Climate Change</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./amr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Anti-Microbial Resistance</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./crazy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Crazy-Ass Humans</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Anti-Microbial Resistance</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -317,7 +293,7 @@ window.Quarto = {
 
 <section id="lotka-volterra" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="lotka-volterra"><span class="header-section-number">2.1</span> Lotka-Volterra</h2>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(deSolve)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## classic Lotka Volterra</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>lv <span class="ot">&lt;-</span> <span class="cf">function</span>(t, x, parms) {</span>
@@ -569,7 +545,7 @@ window.Quarto = {
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="why-do-rodent-populations-cycle"><span class="header-section-number">2.2.1</span> Why Do Rodent Populations Cycle?</h3>
 <p>Rodents are common reservoirs for a variety of zoonoses. <span class="citation" data-cites="yates_etal2002">Yates et al. (<a href="references.html#ref-yates_etal2002" role="doc-biblioref">2002</a>)</span> attribute the origin of <em>Sin Nombre</em> virus in the Desert Southwest, in part, to the high density of deer mice, <em>Peromyscus maniculatus</em>. High densities of rodents are implicated in Lyme disease, Babesiosis, Plague, Lassa fever, Leptospirosis, and others.</p>
 <p>Using the insights of the last section, we can begin to see why rodent densities might cycle.</p>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cole <span class="ot">&lt;-</span> <span class="cf">function</span>(L,a,w,R,b,p)  p<span class="sc">*</span>(L<span class="sc">^-</span><span class="dv">1</span>) <span class="sc">+</span> R<span class="sc">*</span>b<span class="sc">*</span>(L<span class="sc">^-</span>a) <span class="sc">-</span> R<span class="sc">*</span>b<span class="sc">*</span>(p<span class="sc">^</span>(w <span class="sc">-</span> a <span class="sc">+</span><span class="dv">1</span>))<span class="sc">*</span>(L<span class="sc">^-</span>(w<span class="sc">+</span><span class="dv">1</span>)) <span class="sc">-</span> <span class="dv">1</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mice, per month</span></span>
@@ -824,7 +800,7 @@ $estim.prec
 <section id="multi-host-epidemic-isoclines" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="multi-host-epidemic-isoclines"><span class="header-section-number">2.4.1</span> Multi-Host Epidemic Isoclines</h3>
 <p><span class="citation" data-cites="holt_etal2003">Holt et al. (<a href="references.html#ref-holt_etal2003" role="doc-biblioref">2003</a>)</span></p>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Non-interacting</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,,<span class="dv">500</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">9</span>,,<span class="dv">100</span>)</span>
@@ -850,7 +826,7 @@ $estim.prec
 </div>
 </div>
 </div>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Weakly Interactions</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="do">## This one is tricky to get the polygon on, so invert:</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="do">## draw the polygon under and make that white on top of a </span></span>
@@ -880,7 +856,7 @@ $estim.prec
 </div>
 </div>
 </div>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Substitutable</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> (<span class="fl">0.8432192-0.1235539</span>)<span class="sc">/</span>(<span class="fl">1.230762-8.257112</span>)</span>
@@ -905,7 +881,7 @@ $estim.prec
 </div>
 </div>
 </div>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Complementary</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="dv">1</span><span class="sc">/</span>x, <span class="at">type=</span><span class="st">"l"</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">1.5</span>,<span class="dv">9</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="fl">0.15</span>,<span class="dv">1</span><span class="sc">/</span><span class="fl">1.2</span>), <span class="at">axes=</span><span class="cn">FALSE</span>,</span>
@@ -924,7 +900,7 @@ $estim.prec
 </div>
 </div>
 </div>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Alternating</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,,<span class="dv">100</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">/</span>x</span>
@@ -943,7 +919,7 @@ $estim.prec
 </div>
 </div>
 </div>
-<div class="cell" data-fig.asp="1">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Inhibitory</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">15</span>,,<span class="dv">100</span>)</span>
@@ -1410,8 +1386,8 @@ Yates, Terry L., James N. Mills, Cheryl A. Parmenter, et al. 2002. <span>“The 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./R0.html" class="pagination-link" aria-label="That Basic Reproduction Number">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">That Basic Reproduction Number</span></span>
+      <a href="./R0.html" class="pagination-link" aria-label="The Basic Reproduction Number">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Basic Reproduction Number</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

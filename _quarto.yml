@@ -12,12 +12,8 @@ book:
     - ecology.qmd
     - evolution.qmd
     - mixing.qmd
-    - land_use.qmd
     - climate_change.qmd
-    - mobility.qmd
-    - inequality.qmd
     - amr.qmd
-    - crazy.qmd
     - references.qmd
 
 bibliography: gceid.bib
@@ -28,5 +24,5 @@ format:
   pdf:
     documentclass: scrreprt
 
-editor: visual
+editor: source
 
